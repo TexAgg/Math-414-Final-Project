@@ -32,6 +32,7 @@ fdwt = dwt(X=y, filter="haar")
 #print(fdwt@V)
 
 ###############################################
+# http://www.colorado.edu/engineering/CAS/courses.d/ASEN5519.d/kaist.lecture.11.pdf
 
 # Scaling coefficients
 a.2 = c(1.5, -1)
