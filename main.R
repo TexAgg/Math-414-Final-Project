@@ -3,7 +3,7 @@ rm(list=ls())
 
 library(wavelets)
 
-# Chapter 5 problem 1
+# Chapter 4 problem 1
 
 f = function(x) {
     if (x >= 0 && x < 1/4) {
