@@ -1,7 +1,10 @@
 #Clear previous variables
 rm(list=ls())
 
+# https://cran.r-project.org/web/packages/wavelets/wavelets.pdf
 library(wavelets)
+
+###############################################
 
 # Chapter 4 problem 1
 
@@ -24,6 +27,17 @@ k = seq(0, 1-1/2^j, by=1/(2^j))
 y = as.numeric(lapply(k,f))
 
 fdwt = dwt(X=y, filter="haar")
-print(fdwt)
-print(fdwt@W)
-print(fdwt@V)
+#print(fdwt)
+#print(fdwt@W)
+#print(fdwt@V)
+
+###############################################
+
+# Scaling coefficients
+a.2 = c(1.5, -1)
+# Wavelet coefficients
+b.2 = c(-1, -3/2)
+backward = dwt.backward(V=a.2, W=b.2, filter=wt.filter("haar"))
+print(backward*sqrt(2))
+
+# Why are the coeficcients reversed?
