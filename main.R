@@ -42,3 +42,8 @@ backward = dwt.backward(V=a.2, W=b.2, filter=wt.filter("haar"))
 print(backward*sqrt(2))
 
 # Why are the coeficcients reversed?
+
+###############################################
+
+# Import dataset
+data(nile)
