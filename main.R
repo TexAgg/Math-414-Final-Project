@@ -8,6 +8,12 @@ library(wavelets)
 
 # Import dataset
 data(nile)
+
+k = 1:length(nile)
+plot(k,nile)
+
 nile_dwt = dwt(nile, filter="haar")
+print(nile_dwt)
+plot(nile_dwt)
 
 ###############################################
