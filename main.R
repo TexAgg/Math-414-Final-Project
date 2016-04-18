@@ -13,7 +13,7 @@ k = 1:length(nile)
 plot(k,nile)
 
 nile_dwt = dwt(nile, filter="haar")
-print(nile_dwt)
+#print(nile_dwt, type="l")
 plot(nile_dwt)
 
 ###############################################
