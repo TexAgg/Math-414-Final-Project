@@ -3,6 +3,8 @@ rm(list=ls())
 
 # https://cran.r-project.org/web/packages/wavelets/wavelets.pdf
 library(wavelets)
+library(imager)
+library(jpeg)
 
 ###############################################
 
@@ -15,5 +17,7 @@ plot(k,nile)
 nile_dwt = dwt(nile, filter="haar")
 #print(nile_dwt, type="l")
 plot(nile_dwt)
+
+myjpg = readJPEG("boat.jpg")
 
 ###############################################

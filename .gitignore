@@ -65,3 +65,4 @@ vignettes/*.pdf
 *.vrb
 *.xdy
 *.tdo
+.Rproj.user
