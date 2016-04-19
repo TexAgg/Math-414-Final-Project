@@ -1,6 +1,7 @@
 TEXFILE= report
+
 $(TEXFILE).pdf: $(TEXFILE).tex
 	pdflatex $(TEXFILE)
 	
 clean:
-	del report.log report.pdf *.synctex.gz report.aux
+	del $(TEXFILE).log $(TEXFILE).pdf *.synctex.gz $(TEXFILE).aux
