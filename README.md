@@ -12,6 +12,7 @@ using wavelets.
 ### Image Compression
 * http://people.uwec.edu/walkerjs/media/imagecompchap.pdf
 * http://siue.edu/~msong/Research/article.pdf
+* http://www.johnmyleswhite.com/notebook/2009/12/17/image-compression-with-the-svd-in-r/
 
 ### Fingerprint Testing
 * http://www.ijsce.org/attachments/File/Vol-1_Issue-4/D0102071411.pdf
