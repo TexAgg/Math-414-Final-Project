@@ -5,6 +5,7 @@ rm(list=ls())
 library(wavelets)
 library(imager)
 library(jpeg)
+library(pixmap)
 
 ###############################################
 
@@ -19,5 +20,6 @@ nile_dwt = dwt(nile, filter="haar")
 plot(nile_dwt)
 
 myjpg = readJPEG("boat.jpg")
+image <- read.pnm('boat.ppm')
 
 ###############################################
