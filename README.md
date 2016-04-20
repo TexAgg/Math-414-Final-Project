@@ -1,18 +1,27 @@
 # Math-414-Final-Project
 Final [project](http://www.math.tamu.edu/~francis.narcowich/m414/s16/projects_s16.html),
 using wavelets.
+Demonstrating image decompression.
 
 ---
 
-## Possible Topics
+## Image Compression
+* http://people.uwec.edu/walkerjs/media/imagecompchap.pdf
+* http://siue.edu/~msong/Research/article.pdf
+* http://www.johnmyleswhite.com/notebook/2009/12/17/image-compression-with-the-svd-in-r/
+
+---
+
+## Packages
+* [RGDAL](https://cran.r-project.org/web/packages/rgdal/rgdal.pdf)
+
+---
+
+## Other Possible Topics
 
 ### The Nile
 * [Nile paper](http://onlinelibrary.wiley.com/wol1/doi/10.1029/2001WR000509/full)
 
-### Image Compression
-* http://people.uwec.edu/walkerjs/media/imagecompchap.pdf
-* http://siue.edu/~msong/Research/article.pdf
-* http://www.johnmyleswhite.com/notebook/2009/12/17/image-compression-with-the-svd-in-r/
 
 ### Fingerprint Testing
 * http://www.ijsce.org/attachments/File/Vol-1_Issue-4/D0102071411.pdf
