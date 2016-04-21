@@ -21,6 +21,8 @@ nile_dwt = dwt(nile, filter="haar")
 plot(nile_dwt)
 
 ###############################################
+# Deconstruct and reconstruct a jpg 
+# using SVD.
 
 imdata = readGDAL("fox.jpg")
 
@@ -45,3 +47,5 @@ for (i in c(3, 4, 5, 10, 20, 30))
 	image(green.matrix.compressed, col = heat.colors(255), main = i)
 	
 }
+
+###############################################
