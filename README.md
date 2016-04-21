@@ -29,3 +29,10 @@ Demonstrating image decompression.
 ### Detecting Altered Images
 * https://www.cerias.purdue.edu/assets/pdf/bibtex_archive/2001-150-report.pdf
 * http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3043826/
+
+---
+
+## Helpful resources
+
+### Image matrices
+* [png](http://stackoverflow.com/questions/31800687/how-to-get-a-pixel-matrix-from-grayscale-image-in-r)

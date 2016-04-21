@@ -7,6 +7,7 @@ library(wavelets)
 #library(jpeg)
 #library(pixmap)
 library(rgdal)
+library(png)
 
 ###############################################
 
@@ -24,7 +25,7 @@ plot(nile_dwt)
 # Deconstruct and reconstruct a jpg 
 # using SVD.
 
-imdata = readGDAL("fox.jpg")
+imdata = readGDAL("apple.png")
 
 ## as.matrix converts from sp's data.frame form to matrix
 red.matrix <- as.matrix(imdata[1])
