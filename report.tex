@@ -2,12 +2,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage {mathtools, graphicx, amsfonts, amssymb, comment}
 \usepackage{enumerate}
+\usepackage{geometry}
+
+\geometry{margin=1.25in}
 
 % http://tex.stackexchange.com/questions/65849/confusion-onehalfspacing-vs-spacing-vs-word-vs-the-world
 \linespread{1.25}
 
 \title{Math 414 Final Project}
-\author{Matt Gaikema}
+\author{Matt Gaikema \\ Will}
 \date{April 2016}
 
 \begin{document}
@@ -21,6 +24,11 @@
 
 In order to efficiently send and receive images, it is often useful to compress them.
 One of the many ways of accomplishing this is through wavelets.
+
+There are two types of image compression: lossy and lossless.
+\textbf{Lossless} compression means that every bit of information is recovered from the compressed data,
+while \textbf{lossy} compression occurs when redundant information is eliminated.
+The GIF is an example of lossless compression, while the JPEG is lossy.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
