@@ -16,6 +16,10 @@ SetDirectory["C:\\Users\\mgaik\\Dropbox\\Programming\\R\\Math-414-Final-Project"
 https://reference.wolfram.com/language/ref/DiscreteWaveletTransform.html *)
 
 
+(* ::Subsection::Closed:: *)
+(*Example*)
+
+
 img = Import["apple.png"]
 
 
@@ -28,7 +32,26 @@ dwt[All,"Image"]
 
 
 (* Return the original image. *)
-InverseWaveletTransform[dwt]
+(*InverseWaveletTransform[dwt]*)
+
+
+(* ::Subsection:: *)
+(*Jpeg2000*)
+
+
+(* Use the CDF Wavelet Transform. *)
+(* https://en.wikipedia.org/wiki/JPEG_2000 *)
+img = Import["fox.jpg"]
+
+
+ImageData[img]
+
+
+dwt = DiscreteWaveletTransform[img,CDFWavelet[]]
+dwt[All,"Image"]
+
+
+dwt[All]
 
 
 (* ::Section::Closed:: *)
