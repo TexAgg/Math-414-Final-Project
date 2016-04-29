@@ -47,10 +47,15 @@ img = Import["fox.jpg"]
 ImageData[img]
 
 
-dwt = DiscreteWaveletTransform[img,CDFWavelet[]]
+(* 9/7 for lossy compression. *)
+dwt = DiscreteWaveletTransform[img,CDFWavelet["9/7"]]
 dwt[All,"Image"]
+dwt[All]
 
 
+(* 5/3 for lossless compression. *)
+dwt = DiscreteWaveletTransform[img,CDFWavelet["5/3"]]
+dwt[All,"Image"]
 dwt[All]
 
 
