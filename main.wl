@@ -13,7 +13,9 @@ SetDirectory["C:\\Users\\mgaik\\Dropbox\\Programming\\R\\Math-414-Final-Project"
 
 
 (* Documentation for wavelet transform:
-https://reference.wolfram.com/language/ref/DiscreteWaveletTransform.html *)
+https://reference.wolfram.com/language/ref/DiscreteWaveletTransform.html 
+An example:
+http://stat.columbia.edu/~jakulin/Wavelets/index.html *)
 
 
 (* ::Subsection::Closed:: *)
@@ -44,10 +46,13 @@ dwt[All,"Image"]
 img = Import["fox.jpg"]
 
 
-ImageData[img]
+(*ImageData[img]*)
+ImageColorSpace[img]
 
 
-(* 9/7 for lossy compression. *)
+(* 9/7 for lossy compression. 
+The JPEG 2000 actually first does a color transform
+and then tile coding. *)
 dwt = DiscreteWaveletTransform[img,CDFWavelet["9/7"]]
 dwt[All,"Image"]
 dwt[All]
@@ -56,7 +61,7 @@ dwt[All]
 (* 5/3 for lossless compression. *)
 dwt = DiscreteWaveletTransform[img,CDFWavelet["5/3"]]
 dwt[All,"Image"]
-dwt[All]
+(*dwt[All]*)
 
 
 (* ::Section::Closed:: *)
