@@ -36,3 +36,6 @@ Demonstrating image decompression.
 
 ### Image matrices
 * [png](http://stackoverflow.com/questions/31800687/how-to-get-a-pixel-matrix-from-grayscale-image-in-r)
+
+### Image denoising
+* http://tx.technion.ac.il/~rc/SignalDenoisingUsingWavelets_RamiCohen.pdf
