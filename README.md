@@ -17,25 +17,10 @@ Demonstrating image decompression.
 
 ---
 
-## Other Possible Topics
+## Resources
+* http://www.verypdf.com/pdfinfoeditor/jpeg-jpeg-2000-comparison.htm
+* https://reference.wolfram.com/language/ref/DiscreteWaveletTransform.html
+* https://en.wikipedia.org/wiki/JPEG_2000#Application_support
+* https://en.wikipedia.org/wiki/Image_compression
+* https://en.wikipedia.org/wiki/Wavelet_transform#Other_practical_applications
 
-### The Nile
-* [Nile paper](http://onlinelibrary.wiley.com/wol1/doi/10.1029/2001WR000509/full)
-
-
-### Fingerprint Testing
-* http://www.ijsce.org/attachments/File/Vol-1_Issue-4/D0102071411.pdf
-
-### Detecting Altered Images
-* https://www.cerias.purdue.edu/assets/pdf/bibtex_archive/2001-150-report.pdf
-* http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3043826/
-
----
-
-## Helpful resources
-
-### Image matrices
-* [png](http://stackoverflow.com/questions/31800687/how-to-get-a-pixel-matrix-from-grayscale-image-in-r)
-
-### Image denoising
-* http://tx.technion.ac.il/~rc/SignalDenoisingUsingWavelets_RamiCohen.pdf
