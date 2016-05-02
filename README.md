@@ -12,11 +12,6 @@ Demonstrating image decompression.
 
 ---
 
-## Packages
-* [RGDAL](https://cran.r-project.org/web/packages/rgdal/rgdal.pdf)
-
----
-
 ## Resources
 * http://www.verypdf.com/pdfinfoeditor/jpeg-jpeg-2000-comparison.htm
 * https://reference.wolfram.com/language/ref/DiscreteWaveletTransform.html
