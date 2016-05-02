@@ -3,6 +3,8 @@
 \usepackage {mathtools, graphicx, amsfonts, amssymb, comment}
 \usepackage{enumerate}
 \usepackage{geometry}
+\usepackage{subcaption}
+\usepackage{float}
 
 \geometry{margin=1.25in}
 
@@ -32,6 +34,13 @@ while \textbf{lossy} compression occurs when redundant information is eliminated
 The GIF is an example of lossless compression, while the JPEG is lossy.
 
 Wavelets are also useful for detecting and removing noise from an image.
+\ref{fig:noisy} gives an example of a noisy image.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{Highimgnoise.jpg}
+    \caption{An image with a lot of noise}
+    \label{fig:noisy}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
