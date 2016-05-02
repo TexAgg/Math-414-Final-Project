@@ -96,7 +96,7 @@ dwt[All,"Image"]
 
 
 wtdwd = WaveletThreshold[dwt, {"Soft", "SURELevel"}, {1 | 2 | 3}]
-(* What is this. *)
+(* Compare side-by-side: *)
 {Image[InverseWaveletTransform[wtdwd], ImageSize -> All], Image[img, ImageSize -> All]}
 
 
@@ -105,12 +105,14 @@ ImageHistogram[apple]
 ImageHistogram[fox]*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Example*)
 
 
 (* Example, in examples\[Rule]applications\[Rule]denoising
 https://reference.wolfram.com/language/ref/DiscreteWaveletTransform.html *)
+
+
 data = Table[Sin[x] + RandomReal[{-0.1, 0.1}], {x, 0, 2 \[Pi], 0.01}];
 ListLinePlot[data]
 dwd = DiscreteWaveletTransform[data, SymletWavelet[4], 6];
@@ -122,6 +124,14 @@ eth[x_, ind_] :=
 eth[x_, ___] := x
 WaveletMapIndexed[eth, dwd];
 ListLinePlot[InverseWaveletTransform[%]]
+
+
+(* Another example. *)
+spaceman = Import["resources/spaceman.png"]
+nimg = ImageEffect[spaceman, {"GaussianNoise", 0.2}];
+dwd = DiscreteWaveletTransform[nimg, BiorthogonalSplineWavelet[5, 5]];
+wtdwd = WaveletThreshold[dwd, {"Soft", "SURELevel"}, {1 | 2 | 3}];
+{Image[InverseWaveletTransform[wtdwd], ImageSize -> All], Image[nimg, ImageSize -> All]}
 
 
 
