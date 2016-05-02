@@ -1,9 +1,9 @@
 (* ::Package:: *)
 
+(* Clear variables. *)
+ClearAll["Global`*"]
 (* Limit variable scope to just this document. *)
 SetOptions[EvaluationNotebook[], CellContext -> Notebook]
-
-
 (* Set the working directory for image analysis. *)
 SetDirectory["C:\\Users\\mgaik\\Dropbox\\Programming\\R\\Math-414-Final-Project"]
 
@@ -89,20 +89,39 @@ ftp://www.adass.org/adass/proceedings/adass97/murtaghf.html *)
 
 
 Clear[dwt]
-dwt=DiscreteWaveletTransform[img,SymletWavelet[]]
+dwt=DiscreteWaveletTransform[img,BiorthogonalSplineWavelet[5,5]]
 
 (* Extract image coefficients. *)
 dwt[All,"Image"]
 
 
-ImageHistogram[img]
-(*ImageHistogram[apple]
+wtdwd = WaveletThreshold[dwt, {"Soft", "SURELevel"}, {1 | 2 | 3}]
+(* What is this. *)
+{Image[InverseWaveletTransform[wtdwd], ImageSize -> All], Image[img, ImageSize -> All]}
+
+
+(*ImageHistogram[img]
+ImageHistogram[apple]
 ImageHistogram[fox]*)
 
 
-Clear[x,y]
-x = Range[-Pi,Pi,0.5];
-y = Function[x,Sin[x]]/@x;
-(*ListLinePlot[y]*)
-y2 = GaussianFilter[y,2];
-ListLinePlot[{Transpose@{x,y},Transpose@{x,y2}}]
+(* ::Subsection::Closed:: *)
+(*Example*)
+
+
+(* Example, in examples\[Rule]applications\[Rule]denoising
+https://reference.wolfram.com/language/ref/DiscreteWaveletTransform.html *)
+data = Table[Sin[x] + RandomReal[{-0.1, 0.1}], {x, 0, 2 \[Pi], 0.01}];
+ListLinePlot[data]
+dwd = DiscreteWaveletTransform[data, SymletWavelet[4], 6];
+(* Computing the fraction of energy contained at each refinement level: *)
+efrac = dwd["EnergyFraction"]
+(* Set wavelet coefficients containing less than 1% energy to zero: *)
+eth[x_, ind_] := 
+ If[(ind /. efrac) < 0.01, x*0., x] /; MemberQ[efrac[[All, 1]], ind]
+eth[x_, ___] := x
+WaveletMapIndexed[eth, dwd];
+ListLinePlot[InverseWaveletTransform[%]]
+
+
+
