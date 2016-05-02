@@ -25,22 +25,14 @@
 \section{Introduction}
 % https://en.wikipedia.org/wiki/Wavelet_transform
 
-In order to efficiently send and receive images, it is often useful to compress them.
+In order to efficiently send and receive images, it is often useful to compress them, 
+since much of the data may be irrelevant or redundant.
 One of the many ways of accomplishing this is through wavelets.
 
 There are two types of image compression: lossy and lossless.
 \textbf{Lossless} compression means that every bit of information is recovered from the compressed data,
 while \textbf{lossy} compression occurs when redundant information is eliminated.
 The GIF is an example of lossless compression, while the JPEG is lossy.
-
-Wavelets are also useful for detecting and removing noise from an image.
-\ref{fig:noisy} gives an example of a noisy image.
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.4]{resources/Highimgnoise.jpg}
-    \caption{An image with a lot of noise}
-    \label{fig:noisy}
-\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -69,5 +61,6 @@ The wavelet transform on an image produces as many coefficients as there are pix
 % REFERENCES %
 %%%%%%%%%%%%%%
 \section{References}
+
 
 \end{document}
