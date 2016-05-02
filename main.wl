@@ -39,7 +39,7 @@ dwt[All,"Image"]
 (*InverseWaveletTransform[dwt]*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Jpeg2000*)
 
 
@@ -68,7 +68,7 @@ dwt[All,"Image"]
 (*dwt[All]*)
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Denoising*)
 
 
@@ -132,6 +132,9 @@ nimg = ImageEffect[spaceman, {"GaussianNoise", 0.2}];
 dwd = DiscreteWaveletTransform[nimg, BiorthogonalSplineWavelet[5, 5]];
 wtdwd = WaveletThreshold[dwd, {"Soft", "SURELevel"}, {1 | 2 | 3}];
 {Image[InverseWaveletTransform[wtdwd], ImageSize -> All], Image[nimg, ImageSize -> All]}
+
+
+
 
 
 
