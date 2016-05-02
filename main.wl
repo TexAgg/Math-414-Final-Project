@@ -23,7 +23,7 @@ http://stat.columbia.edu/~jakulin/Wavelets/index.html *)
 
 
 Clear[apple]
-apple = Import["apple.png"]
+apple = Import["resources/apple.png"]
 
 
 Clear[dwt]
@@ -46,7 +46,7 @@ dwt[All,"Image"]
 Clear[fox]
 (* Use the CDF Wavelet Transform. *)
 (* https://en.wikipedia.org/wiki/JPEG_2000 *)
-fox = Import["fox.jpg"]
+fox = Import["resources/fox.jpg"]
 
 
 (*ImageData[fox]*)
@@ -74,7 +74,7 @@ dwt[All,"Image"]
 
 Clear[img]
 (* Import an image with lots of "noise". *)
-img = Import["Highimgnoise.jpg"]
+img = Import["resources/Highimgnoise.jpg"]
 
 
 (* Denoise the image. *)
