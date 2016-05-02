@@ -19,3 +19,5 @@ Demonstrating image decompression.
 * https://en.wikipedia.org/wiki/Image_compression
 * https://en.wikipedia.org/wiki/Wavelet_transform#Other_practical_applications
 
+### JPEG 2000
+* http://petapixel.com/2015/09/12/jpeg-2000-the-better-alternative-to-jpeg-that-never-made-it-big/

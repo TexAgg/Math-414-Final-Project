@@ -43,6 +43,10 @@ dwt[All,"Image"]
 (*Jpeg2000*)
 
 
+(* ::Subsubsection::Closed:: *)
+(*Firefox*)
+
+
 Clear[fox]
 (* Use the CDF Wavelet Transform. *)
 (* https://en.wikipedia.org/wiki/JPEG_2000 *)
@@ -66,6 +70,14 @@ dwt[All]
 dwt = DiscreteWaveletTransform[img,CDFWavelet["5/3"]]
 dwt[All,"Image"]
 (*dwt[All]*)
+
+
+(* ::Subsubsection:: *)
+(*Baby*)
+
+
+(* https://reference.wolfram.com/language/ref/format/JPEG2000.html *)
+baby = Import["ExampleData/girl.jp2"]
 
 
 (* ::Section::Closed:: *)
@@ -132,6 +144,9 @@ nimg = ImageEffect[spaceman, {"GaussianNoise", 0.2}];
 dwd = DiscreteWaveletTransform[nimg, BiorthogonalSplineWavelet[5, 5]];
 wtdwd = WaveletThreshold[dwd, {"Soft", "SURELevel"}, {1 | 2 | 3}];
 {Image[InverseWaveletTransform[wtdwd], ImageSize -> All], Image[nimg, ImageSize -> All]}
+
+
+
 
 
 
