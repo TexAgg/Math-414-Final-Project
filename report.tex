@@ -22,25 +22,24 @@
 %%%%%%%%%%%%%%%%
 \section{Introduction}
 % https://en.wikipedia.org/wiki/Wavelet_transform
-% https://www.wolfram.com/mathematica/new-in-8/wavelet-analysis/
 
 In order to efficiently send and receive images, it is often useful to compress them.
-One of the many ways of accomplishing this is through the JPEG 2000 standard, which uses wavelet transforms.
+One of the many ways of accomplishing this is through wavelets.
 
 There are two types of image compression: lossy and lossless.
 \textbf{Lossless} compression means that every bit of information is recovered from the compressed data,
 while \textbf{lossy} compression occurs when redundant information is eliminated.
 The GIF is an example of lossless compression, while the JPEG is lossy.
 
-A particular use for wavelets is in the JPEG 2000, which is an image compression standard.
+Wavelets are also useful for detecting and removing noise from an image.
 
-Another spot where wavelets shine in image analysis is in denoising an image.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MATHEMATICAL BACKGROUND %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mathematical Background}
 % https://en.wikipedia.org/wiki/JPEG_2000
+% http://cs.haifa.ac.il/hagit/courses/seminars/wavelets/Presentations/Lecture09_Denoising.pdf
 
 The wavelet transform on an image produces as many coefficients as there are pixels.
 

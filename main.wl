@@ -96,8 +96,13 @@ dwt[All,"Image"]
 
 
 ImageHistogram[img]
-ImageHistogram[apple]
-ImageHistogram[fox]
+(*ImageHistogram[apple]
+ImageHistogram[fox]*)
 
 
-
+Clear[x,y]
+x = Range[-Pi,Pi,0.5];
+y = Function[x,Sin[x]]/@x;
+(*ListLinePlot[y]*)
+y2 = GaussianFilter[y,2];
+ListLinePlot[{Transpose@{x,y},Transpose@{x,y2}}]
