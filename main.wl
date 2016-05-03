@@ -43,6 +43,11 @@ dwt[All,"Image"]
 (*Jpeg2000*)
 
 
+(* A neat example is given in the documentation for
+WaveletImagePlot under Examples\[Rule]Neat examples:
+https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
+
+
 (* ::Subsubsection::Closed:: *)
 (*Firefox*)
 
@@ -77,7 +82,36 @@ dwt[All,"Image"]
 
 
 (* https://reference.wolfram.com/language/ref/format/JPEG2000.html *)
-baby = Import["ExampleData/girl.jp2"]
+Import["ExampleData/girl.jp2"];
+
+
+(* ::Subsubsubsection:: *)
+(*Preprocessing*)
+
+
+(* Convert to grayscale so I don't need to deal with color space. 
+For future reference a YCrCb transform example is given here:
+http://community.wolfram.com/groups/-/m/t/233186?p_p_auth=21UnjxGl *)
+baby = ColorConvert[%,"Grayscale"]
+
+(* How do I subtract intensity values? *)
+
+
+(* ::Subsubsubsection:: *)
+(*Transformation*)
+
+
+(* Lossless compression. *)
+dwt = DiscreteWaveletTransform[baby, CDFWavelet["5/3"],2]
+
+
+WaveletImagePlot[dwt, BaseStyle->Red]
+
+
+dwt[{"TreeView",Left}]
+
+
+dwt[All,"Image"]
 
 
 (* ::Section::Closed:: *)
@@ -144,6 +178,9 @@ nimg = ImageEffect[spaceman, {"GaussianNoise", 0.2}];
 dwd = DiscreteWaveletTransform[nimg, BiorthogonalSplineWavelet[5, 5]];
 wtdwd = WaveletThreshold[dwd, {"Soft", "SURELevel"}, {1 | 2 | 3}];
 {Image[InverseWaveletTransform[wtdwd], ImageSize -> All], Image[nimg, ImageSize -> All]}
+
+
+
 
 
 

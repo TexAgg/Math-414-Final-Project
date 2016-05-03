@@ -55,7 +55,7 @@ Figure \ref{fig:compare} shows two images compressed using JPEG and JPEG 2000.
 
 Of course, despite the advantages of the JPEG 2000, it is rarely used today, 
 while the JPEG is still very popular.
-The main reason is computation. 
+The main reason is computation.\cite{alternative} 
 Adopting the JPEG 2000 would have required rewriting much software, 
 since it was not backwards-compatable with the JPEG.
 Many companies were unwilling to add support for it since it wasn't popular,
@@ -72,7 +72,15 @@ To this day, few websites and no major web browsers support it.
 % https://en.wikipedia.org/wiki/JPEG_2000
 
 The JPEG 2000's use of the Discrete Wavelet Transform is what makes it superior to the JPEG.\cite{how}
-The Discrete Cosine Transform, which is used by the JPEG,  
+The Discrete Cosine Transform (DCT), which is used by the JPEG, compresses the image into 8x8 blocks
+and places them consecutively in the file.
+The blocks are compressed individually.
+This is the reason for "blockiness" in compressed JPEG images.
+
+Wavelet compression converts the image into a series of wavelets, which can be more easily stored than pixel blocks.
+
+The JPEG 2000 compression algorithm consists of four basic steps: 
+preprocess, transformation, quantization, and encoding\cite{whydomath}.
 
 The wavelet transform on an image produces as many coefficients as there are pixels.
 
@@ -88,13 +96,12 @@ The wavelet transform on an image produces as many coefficients as there are pix
 %%%%%%%%%%%%%%
 \section{Conclusion}
 
+The JPEG 2000 could easily be the next standard for image compression, if only people would use it.
 
 %%%%%%%%%%%%%%
 % REFERENCES %
 %%%%%%%%%%%%%%
-\section{References}
-
-
 \printbibliography[]
+
 
 \end{document}
