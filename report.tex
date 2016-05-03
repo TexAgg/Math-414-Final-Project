@@ -5,7 +5,9 @@
 \usepackage{geometry}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage[backend=bibtex,sorting=ynt]{biblatex}
 
+\addbibresource{bibliography.bib}
 \geometry{margin=1.25in}
 
 % http://tex.stackexchange.com/questions/65849/confusion-onehalfspacing-vs-spacing-vs-word-vs-the-world
@@ -43,6 +45,8 @@ The file extension is \verb|.jp2|, compared with the typical JPEG extension of \
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.4]{resources/comparison.png}
+	\caption{Two images compressed using JPEG and JPEG 2000.\cite{comparison}}
+	\label{fig:compare}
 \end{figure}
 
 There are a few advantages of the JPEG 2000 over the JPEG.
@@ -88,5 +92,7 @@ The wavelet transform on an image produces as many coefficients as there are pix
 %%%%%%%%%%%%%%
 \section{References}
 
+
+\printbibliography[]
 
 \end{document}
