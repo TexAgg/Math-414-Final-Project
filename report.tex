@@ -25,7 +25,6 @@
 % INTRODUCTION %
 %%%%%%%%%%%%%%%%
 \section{Introduction}
-% https://en.wikipedia.org/wiki/Wavelet_transform
 
 In order to efficiently send and receive images, it is often useful to compress them, 
 since much of the data may be irrelevant or redundant.
@@ -52,6 +51,7 @@ The file extension is \verb|.jp2|, compared with the typical JPEG extension of \
 There are a few advantages of the JPEG 2000 over the JPEG.
 First, JPEG 2000 can be lossy or lossless, while JPEG compression is always lossy.
 This means that JPEG 2000 produces images of much higher quality.
+Figure \ref{fig:compare} shows two images compressed using JPEG and JPEG 2000.
 
 Of course, despite the advantages of the JPEG 2000, it is rarely used today, 
 while the JPEG is still very popular.
@@ -61,8 +61,8 @@ since it was not backwards-compatable with the JPEG.
 Many companies were unwilling to add support for it since it wasn't popular,
 and many consumers didn't use it since there was little support for it,
 creating an unfortunate cycle. 
-To this day, few websites and no major web browsers support it.
 Additionally, the JPEG 2000 requires more computing power, which was not as abundant in 2000 as it is today.
+To this day, few websites and no major web browsers support it.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,7 +70,9 @@ Additionally, the JPEG 2000 requires more computing power, which was not as abun
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mathematical Background}
 % https://en.wikipedia.org/wiki/JPEG_2000
-% http://cs.haifa.ac.il/hagit/courses/seminars/wavelets/Presentations/Lecture09_Denoising.pdf
+
+The JPEG 2000's use of the Discrete Wavelet Transform is what makes it superior to the JPEG.\cite{how}
+The Discrete Cosine Transform, which is used by the JPEG,  
 
 The wavelet transform on an image produces as many coefficients as there are pixels.
 

@@ -69,3 +69,8 @@ vignettes/*.pdf
 
 # PDF
 *.pdf
+
+# BibLaTeX
+report-blx.bib
+*.blg
+*.bbl

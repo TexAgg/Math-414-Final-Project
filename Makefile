@@ -8,4 +8,4 @@ $(TEXFILE).pdf: $(TEXFILE).tex
 	pdflatex $(TEXFILE)
 
 clean:
-	del *.aux *.blg *.out *.bbl *.log *.pdf *.xml report-blx.bib
+	del *.aux *.blg *.out *.bbl *.log *.pdf report.run.xml report-blx.bib
