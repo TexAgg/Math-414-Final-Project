@@ -181,12 +181,3 @@ wtdwd = WaveletThreshold[dwd, {"Soft", "SURELevel"}, {1 | 2 | 3}];
 
 
 
-
-
-
-
-
-
-
-
-
