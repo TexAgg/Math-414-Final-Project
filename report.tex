@@ -6,6 +6,7 @@
 \usepackage{subcaption}
 \usepackage{float}
 \usepackage[backend=bibtex,sorting=ynt]{biblatex}
+\usepackage{hyperref}
 
 \addbibresource{bibliography.bib}
 \geometry{margin=1.25in}
@@ -81,6 +82,11 @@ Wavelet compression converts the image into a series of wavelets, which can be m
 
 The JPEG 2000 compression algorithm consists of four basic steps: 
 preprocess, transformation, quantization, and encoding\cite{whydomath}.
+
+\subsection{Preproccessing}
+
+If the image is a color image, the image needs to be converted to the YCbCr \href{https://en.wikipedia.org/wiki/Color_space}{color space} 
+from the standard RGB color space.
 
 The wavelet transform on an image produces as many coefficients as there are pixels.
 
