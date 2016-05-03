@@ -83,14 +83,30 @@ Wavelet compression converts the image into a series of wavelets, which can be m
 The JPEG 2000 compression algorithm consists of four basic steps: 
 preprocess, transformation, quantization, and encoding\cite{whydomath}.
 
-\subsection{Preproccessing}
+\begin{enumerate}
+	
+	\item\textbf{Preprocecessing:}
+	If the image is a color image, the image needs to be converted to the YCbCr color space\cite{colorspace}
+	from the standard RGB color space.
 
-If the image is a color image, the image needs to be converted to the YCbCr \href{https://en.wikipedia.org/wiki/Color_space}{color space} 
-from the standard RGB color space.
+	After the color space transform, sometimes the image will be split up into different tiles of equal size,
+	but this is optional.
+	
+	\item\textbf{Transform:}
+	The Discrete Wavelet Transform is the most impportant feature of the JPEG 2000.
+	In the case of a lossy compression, a Cohen-Daubechies-Feauveau (CDF) 9/7 wavelet is used.
+	
+	\item\textbf{Quantization:}
+	
+	\item\textbf{Encoding:}
+	
+\end{enumerate}
 
-After the color space transform, sometimes the image will be split up into different tiles of equal size.
+\subsection{The CDF Wavelet}
 
-The wavelet transform on an image produces as many coefficients as there are pixels.
+%\bigskip
+%\noindent
+%The wavelet transform on an image produces as many coefficients as there are pixels.
 
 
 %%%%%%%%%%%%%%%
