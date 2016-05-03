@@ -2,6 +2,10 @@ TEXFILE=report
 
 $(TEXFILE).pdf: $(TEXFILE).tex
 	pdflatex $(TEXFILE)
+	pdflatex $(TEXFILE)
+	bibtex $(TEXFILE)
+	pdflatex $(TEXFILE)
+	pdflatex $(TEXFILE)
 
 clean:
-	del $(TEXFILE).log $(TEXFILE).pdf *.synctex.gz $(TEXFILE).aux
+	del *.aux *.blg *.out *.bbl *.log *.pdf *.xml report-blx.bib
