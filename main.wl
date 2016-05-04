@@ -57,5 +57,16 @@ Export["losslessbaby.png",%]
 (* Lossy compression. *)
 lossy = DiscreteWaveletTransform[baby,CDFWavelet["9/7"],2]
 
-WaveletImagePlot[lossy,BaseStyle->Red]
+lossyPlot = WaveletImagePlot[lossy,BaseStyle->Red]
 Export["lossybaby.png",%]
+
+
+(* ::Subsubsection:: *)
+(*Quantization*)
+
+
+(* https://reference.wolfram.com/language/ref/ColorQuantize.html *)
+
+
+(* Quantize the lossy DWT. *)
+ColorQuantize[lossyPlot,7]
