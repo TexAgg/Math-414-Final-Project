@@ -83,6 +83,19 @@ Wavelet compression converts the image into a series of wavelets, which can be m
 The JPEG 2000 compression algorithm consists of four basic steps: 
 preprocess, transformation, quantization, and encoding\cite{whydomath}.
 
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{resources/losslessbaby.png}
+	\caption{DWT using the lossless 5/3 filter.}
+	\label{fig:losslessbaby}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{resources/lossybaby.png}
+	\caption{DWT using the lossy 9/7 filter.}
+	\label{fig:lossybaby}
+\end{figure}
+
 \begin{enumerate}
 	
 	\item\textbf{Preprocecessing:}
@@ -97,13 +110,22 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 	In the case of a lossy compression, a Cohen-Daubechies-Feauveau (CDF) 9/7 wavelet is used.
 	
 	\item\textbf{Quantization:}
+	If the compression is lossless, then no quantization is done.
+	Figure \ref{fig:losslessbaby} is encoded and the algorithm is completed.
 	
 	\item\textbf{Encoding:}
 	
 \end{enumerate}
 
 \subsection{The CDF Wavelet}
-% https://nalag.cs.kuleuven.be/papers/ade/kviv96/preprint.pdf
+
+The CDF Wavelet is a biorthogonal wavelet, which satisfies four properties\cite{old}:
+\begin{itemize}
+	\item The scaling function, $\phi(x)$, is always symmetric.
+	\item The wavelet function, $\psi(x)$, is always symmetric or anti-symmetric.
+	\item The wavelet filters are finite.
+	\item The coefficients of the wavelet filters have the form $\frac{z}{2^n}$, with $z\in\mathbb{Z}$ and $n\in\mathbb{N}$.
+\end{itemize}
 
 %\bigskip
 %\noindent

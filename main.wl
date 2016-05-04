@@ -5,7 +5,7 @@ ClearAll["Global`*"]
 (* Limit variable scope to just this document. *)
 SetOptions[EvaluationNotebook[], CellContext -> Notebook]
 (* Set the working directory for image analysis. *)
-SetDirectory["C:\\Users\\mgaik\\Dropbox\\Programming\\R\\Math-414-Final-Project"]
+SetDirectory["C:\\Users\\mgaik\\Dropbox\\Programming\\R\\Math-414-Final-Project\\resources"]
 
 
 (* ::Section:: *)
@@ -23,7 +23,7 @@ http://stat.columbia.edu/~jakulin/Wavelets/index.html *)
 
 
 Clear[apple]
-apple = Import["resources/apple.png"]
+apple = Import["apple.png"]
 
 
 Clear[dwt]
@@ -55,7 +55,7 @@ https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
 Clear[fox]
 (* Use the CDF Wavelet Transform. *)
 (* https://en.wikipedia.org/wiki/JPEG_2000 *)
-fox = Import["resources/fox.jpg"]
+fox = Import["fox.jpg"]
 
 
 (*ImageData[fox]*)
@@ -106,6 +106,7 @@ dwt = DiscreteWaveletTransform[baby, CDFWavelet["5/3"],2]
 
 
 WaveletImagePlot[dwt, BaseStyle->Red]
+Export["losslessbaby.png",%]
 
 
 dwt[{"TreeView",Left}]
@@ -120,7 +121,7 @@ dwt[All,"Image"]
 
 Clear[img]
 (* Import an image with lots of "noise". *)
-img = Import["resources/Highimgnoise.jpg"]
+img = Import["Highimgnoise.jpg"]
 
 
 (* Denoise the image. *)
@@ -178,6 +179,9 @@ nimg = ImageEffect[spaceman, {"GaussianNoise", 0.2}];
 dwd = DiscreteWaveletTransform[nimg, BiorthogonalSplineWavelet[5, 5]];
 wtdwd = WaveletThreshold[dwd, {"Soft", "SURELevel"}, {1 | 2 | 3}];
 {Image[InverseWaveletTransform[wtdwd], ImageSize -> All], Image[nimg, ImageSize -> All]}
+
+
+
 
 
 
