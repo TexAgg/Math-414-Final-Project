@@ -23,7 +23,7 @@ WaveletImagePlot under Examples\[Rule]Neat examples:
 https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Baby*)
 
 
@@ -31,7 +31,7 @@ https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
 Import["ExampleData/girl.jp2"];
 
 
-(* ::Subsubsubsection:: *)
+(* ::Subsubsection:: *)
 (*Preprocessing*)
 
 
@@ -43,7 +43,7 @@ baby = ColorConvert[%,"Grayscale"]
 (* How do I subtract intensity values? *)
 
 
-(* ::Subsubsubsection:: *)
+(* ::Subsubsection:: *)
 (*Transformation*)
 
 
@@ -56,8 +56,6 @@ Export["losslessbaby.png",%]
 
 (* Lossy compression. *)
 lossy = DiscreteWaveletTransform[baby,CDFWavelet["9/7"],2]
+
 WaveletImagePlot[lossy,BaseStyle->Red]
 Export["lossybaby.png",%]
-
-
-
