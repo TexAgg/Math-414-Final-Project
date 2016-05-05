@@ -47,7 +47,7 @@ baby = ColorConvert[%,"Grayscale"]
 (* How do I subtract intensity values? *)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Transformation*)
 
 
@@ -56,6 +56,9 @@ lossless = DiscreteWaveletTransform[baby, CDFWavelet["5/3"],2]
 
 WaveletImagePlot[lossless, BaseStyle->Red]
 Export["losslessbaby.png",%]
+
+
+lossless[All]
 
 
 Clear[x]
@@ -75,6 +78,9 @@ lossyPlot = WaveletImagePlot[lossy,BaseStyle->Red]
 Export["lossybaby.png",%]
 
 
+lossy[All]
+
+
 Clear[x]
 fam = lossy["Wavelet"];
 WaveletPsi[fam,x];
@@ -85,7 +91,7 @@ lossyFamily = GraphicsRow[{ps,ph}]
 Export["lossy_family.png",%]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Quantization*)
 
 
@@ -132,9 +138,3 @@ ByteCount[Compress[baby]]
 (* https://reference.wolfram.com/language/ref/ImageMeasurements.html *)
 ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 186*240*8
-
-
-
-
-
-

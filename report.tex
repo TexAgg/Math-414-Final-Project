@@ -5,7 +5,7 @@
 \usepackage{geometry}
 \usepackage{subcaption}
 \usepackage{float}
-\usepackage[backend=bibtex,sorting=ynt]{biblatex}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
 \usepackage{hyperref}
 
 \addbibresource{bibliography.bib}
@@ -16,6 +16,7 @@
 
 \title{Math 414 Final Project}
 \author{Matt Gaikema \\ Will Argueta}
+% Matt Gaikema did all the work.
 \date{April 2016}
 
 \begin{document}
@@ -150,13 +151,23 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 \subsection{The CDF Wavelet}
 % http://www.ams.org/samplings/feature-column/fcarc-image-compression
 
-The CDF Wavelet is a biorthogonal wavelet, which satisfies four properties\cite{old}:
+The CDF Wavelet is a biorthogonal wavelet, which, in addition to satisfying the requirements for a multiresolution analysis,
+satisfies four properties\cite{old}:
 \begin{itemize}
 	\item The scaling function, $\phi(x)$, is always symmetric.
 	\item The wavelet function, $\psi(x)$, is always symmetric or anti-symmetric.
 	\item The wavelet filters are finite.
 	\item The coefficients of the wavelet filters have the form $\frac{z}{2^n}$, with $z\in\mathbb{Z}$ and $n\in\mathbb{N}$.
 \end{itemize}
+Figures \ref{fig:lossy_family} and \ref{fig:lossless_family} show plots of the $\phi(x)$
+and $\psi(x)$ for the lossy and lossless transforms, respectively.
+
+Since the CDF wavelet is biorthogonal, there are two wavelet bases, $\psi_{mn}$ and $\tilde{\psi}_{mn}$,
+which are shifts and scalings of $\psi$ and $\tilde{\psi}$.\cite{cdf}
+For any $f\in L^2(\mathbb{R})$, we have that
+\begin{equation}
+	f = \sum_{j,k\in\mathbb{Z}}\langle f,\tilde{\psi}_{jk}\rangle\psi_{jk}=\sum_{j,k\in\mathbb{Z}}\langle f,\psi_{jk}\rangle\tilde{\psi}_{jk}.
+\end{equation}
 
 %\bigskip
 %\noindent
