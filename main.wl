@@ -64,12 +64,6 @@ WaveletImagePlot[lossless, BaseStyle->Red]
 Export["losslessbaby.png",%]
 
 
-lossless["Properties"]
-lossless[{"WaveletIndex","TreeView"}]
-lossless[All,"Values"]
-Export["lossless_coefficients.txt",%]
-
-
 Clear[x]
 fam = lossless["Wavelet"];
 WaveletPsi[fam,x];
@@ -141,6 +135,17 @@ ImageData[baby]*)
 WaveletMapIndexed[c\[Rule]Q[c],lossy]*)
 
 
+(* Experiment with coefficients. *)
+lossless["Properties"]
+lossless[{"WaveletIndex","TreeView"}]
+Print["Rules:"]
+lossless[All,"Rules"]
+Print["Values:"]
+lossless[All,"Values"]
+(*Export["lossless_coefficients.txt",%]*)
+
+
+(* Experiment with R. *)
 RSet["cof",10]
 REvaluate["environment()"]
 REvaluate["source('C:/Users/mgaik/Dropbox/Programming/R/Math-414-Final-Project/main.R')"]
