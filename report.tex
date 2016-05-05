@@ -8,6 +8,13 @@
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 \usepackage{hyperref}
 
+% http://tex.stackexchange.com/questions/118173/how-to-write-ceil-and-floor-in-latex
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Declare sgn function
+\DeclareMathOperator{\sgn}{sgn}
+
 \addbibresource{bibliography.bib}
 \geometry{margin=1.25in}
 
@@ -127,6 +134,12 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 	The quantization scheme used is not unlike that used by JPEG on the 8x8 blocks,
 	where two iterations of the DWT results in seven blocks.
 	A floor function is applied to each of the wavelet coefficients.
+	The function used for quantization is
+	\begin{equation}
+		q(t) = \sgn(t)\floor*{|t|/d},
+	\end{equation}
+	where $d$ is the step size.\cite{whydomath}
+	For a lossless compression, $d=1$.
 	
 	\item\textbf{Encoding:}
 	For encoding, Embedded Block Coding with Optimized Truncation, or EBCOT, is used.

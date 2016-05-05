@@ -130,10 +130,8 @@ d = \[Tau];
 q[t_,w_] := Sign[t]*Floor[Abs[t]/(\[Tau]/2^w)]
 
 
+(* This gets me the data, but I need it in image form. *)
 WaveletMapIndexed[q,DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]]
-
-
-(*Map[Q,lossy[All]]*)
 
 
 (* Experiment with coefficients. *)
@@ -160,6 +158,3 @@ ByteCount[Compress[baby]]
 (* https://reference.wolfram.com/language/ref/ImageMeasurements.html *)
 ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 186*240*8
-
-
-
