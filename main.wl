@@ -12,6 +12,11 @@ SetOptions[EvaluationNotebook[], CellContext -> Notebook]
 SetDirectory["C:\\Users\\mgaik\\Dropbox\\Programming\\R\\Math-414-Final-Project\\resources"]
 
 
+Needs["RLink`"]
+(* Load R. *)
+InstallR["RHomeLocation"->"C:\\Program Files\\R\\R-3.2.3"]
+
+
 (* ::Section:: *)
 (*JPEG2000 Compression*)
 
@@ -59,7 +64,10 @@ WaveletImagePlot[lossless, BaseStyle->Red]
 Export["losslessbaby.png",%]
 
 
-lossless[All]
+lossless["Properties"]
+lossless[{"WaveletIndex","TreeView"}]
+lossless[All,"Values"]
+Export["lossless_coefficients.txt",%]
 
 
 Clear[x]
@@ -131,6 +139,11 @@ ImageData[baby]*)
 
 (*Clear[c]
 WaveletMapIndexed[c\[Rule]Q[c],lossy]*)
+
+
+RSet["cof",10]
+REvaluate["environment()"]
+REvaluate["source('C:/Users/mgaik/Dropbox/Programming/R/Math-414-Final-Project/main.R')"]
 
 
 (* ::Subsubsection:: *)
