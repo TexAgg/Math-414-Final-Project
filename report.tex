@@ -16,7 +16,6 @@
 
 \title{The JPEG 2000}
 \author{Matt Gaikema \\ Will Argueta}
-% Matt Gaikema did all the work.
 \date{May 2016}
 
 \begin{document}
@@ -173,14 +172,22 @@ For any $f\in L^2(\mathbb{R})$, we have that
 %\noindent
 %The wavelet transform on an image produces as many coefficients as there are pixels.
 
+\begin{figure}
+	\centering
+	\includegraphics{resources/baby.png}
+	\caption{An untransformed grayscale image.}
+	\label{fig:original}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%
 % APPLICATION %
 %%%%%%%%%%%%%%%
 \section{Application}
 
-The source code for the implemented transformations can be found at \cite{repo},
-in the file \href{https://raw.githubusercontent.com/TexAgg/Math-414-Final-Project/master/main.wl}{main.wl}.
+The source code for the implemented transformations in Mathematica can be found at \cite{implement}.
+Figure \ref{fig:original} is the image, untransformed and uncompressed.
+Since it is a grayscale image, no color space conversions need to be done.
 
 
 %%%%%%%%%%%%%%

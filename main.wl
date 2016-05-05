@@ -35,7 +35,7 @@ https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
 Import["ExampleData/girl.jp2"];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Preprocessing*)
 
 
@@ -43,6 +43,7 @@ Import["ExampleData/girl.jp2"];
 For future reference a YCrCb transform example is given here:
 http://community.wolfram.com/groups/-/m/t/233186?p_p_auth=21UnjxGl *)
 baby = ColorConvert[%,"Grayscale"]
+Export["baby.png",baby]
 
 (* How do I subtract intensity values? *)
 
@@ -91,8 +92,11 @@ lossyFamily = GraphicsRow[{ps,ph}]
 Export["lossy_family.png",%]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Quantization*)
+
+
+(* I don't know how to do this. *)
 
 
 (* https://reference.wolfram.com/language/ref/ColorQuantize.html *)
@@ -138,3 +142,6 @@ ByteCount[Compress[baby]]
 (* https://reference.wolfram.com/language/ref/ImageMeasurements.html *)
 ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 186*240*8
+
+
+
