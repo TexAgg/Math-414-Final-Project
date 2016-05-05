@@ -77,7 +77,8 @@ I think this is not what I want. *)
 quant = ColorQuantize[lossyPlot,7]
 
 
-(* How do I quantize? *)
+(* How do I quantize? 
+https://reference.wolfram.com/language/ref/WaveletMapIndexed.html *)
 
 
 (* http://www.whydomath.org/node/wavlets/jpeg2000quantization.html *)
@@ -86,7 +87,7 @@ Clear[q,t,d]
 d = 2;
 (* Quantization function. *)
 q[t_] := Sign[t]*Floor[Abs[t]/d]
-(*Q[list_] := (*Map[q,list]*)
+(*Q[list_] := Map[q,list]*)
 
 
 v = {3,-2.1,0.8,-0.4,-6,4,9,10}
@@ -111,6 +112,3 @@ ByteCount[Compress[baby]]
 (* https://reference.wolfram.com/language/ref/ImageMeasurements.html *)
 ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 186*240*8
-
-
-

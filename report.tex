@@ -44,7 +44,7 @@ which uses the Discrete Cosine Transform and was created in 1992.
 The file extension is \verb|.jp2|, compared with the typical JPEG extension of \verb|.jpg|.
 
 % http://www.verypdf.com/pdfinfoeditor/jpeg-jpeg-2000-comparison.htm
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.4]{resources/comparison.png}
 	\caption{Two images compressed using JPEG and JPEG 2000.\cite{comparison}}
@@ -86,17 +86,20 @@ Wavelet compression converts the image into a series of wavelets, which can be m
 The JPEG 2000 compression algorithm consists of four basic steps: 
 preprocess, transformation, quantization, and encoding\cite{whydomath}.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.6]{resources/losslessbaby.png}
-	\caption{DWT using the lossless 5/3 filter.}
-	\label{fig:losslessbaby}
-\end{figure}
-\begin{figure}
+% A lossy transform on the baby picture.
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.6]{resources/lossybaby.png}
 	\caption{DWT using the lossy 9/7 filter.}
 	\label{fig:lossybaby}
+\end{figure}
+
+% A lossless transform on the baby picture.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.6]{resources/losslessbaby.png}
+	\caption{DWT using the lossless 5/3 filter.}
+	\label{fig:losslessbaby}
 \end{figure}
 
 \begin{enumerate}
@@ -131,6 +134,7 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 \end{enumerate}
 
 \subsection{The CDF Wavelet}
+% http://www.ams.org/samplings/feature-column/fcarc-image-compression
 
 The CDF Wavelet is a biorthogonal wavelet, which satisfies four properties\cite{old}:
 \begin{itemize}
