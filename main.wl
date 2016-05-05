@@ -40,7 +40,7 @@ https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
 Import["ExampleData/girl.jp2"];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Preprocessing*)
 
 
@@ -53,17 +53,22 @@ Export["baby.png",baby]
 (* How do I subtract intensity values? *)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Transformation*)
 
 
 (* Lossless compression. *)
 lossless = DiscreteWaveletTransform[baby, CDFWavelet["5/3"],2]
 
+
+DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]
+
+
 WaveletImagePlot[lossless, BaseStyle->Red]
 Export["losslessbaby.png",%]
 
 
+(* Plot functions. *)
 Clear[x]
 fam = lossless["Wavelet"];
 WaveletPsi[fam,x];
@@ -77,13 +82,12 @@ Export["lossless_family.png",%]
 (* Lossy compression. *)
 lossy = DiscreteWaveletTransform[baby,CDFWavelet["9/7"],2]
 
+
 lossyPlot = WaveletImagePlot[lossy,BaseStyle->Red]
 Export["lossybaby.png",%]
 
 
-lossy[All]
-
-
+(* Plot functions. *)
 Clear[x]
 fam = lossy["Wavelet"];
 WaveletPsi[fam,x];
@@ -114,41 +118,37 @@ https://reference.wolfram.com/language/ref/WaveletMapIndexed.html *)
 
 
 (* http://www.whydomath.org/node/wavlets/jpeg2000quantization.html *)
-Clear[q,t,d]
+Clear[q,t,d,R,c,i]
+R=8;
+i=2;
+c=8.5;
+fr=8;
+\[Tau] = 2^(R-c+i)*(1+fr/2^(11))
 (* Step size. *)
-d = 2;
+d = \[Tau];
 (* Quantization function. *)
-q[t_] := Sign[t]*Floor[Abs[t]/d]
-(*Q[list_] := Map[q,list]*)
+q[t_,w_] := Sign[t]*Floor[Abs[t]/(\[Tau]/2^w)]
 
 
-v = {3,-2.1,0.8,-0.4,-6,4,9,10}
-Map[q,v]
+WaveletMapIndexed[q,DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]]
 
 
-(*Q[v]
-Map[Q,ImageData[baby]]
-ImageData[baby]*)
-
-
-(*Clear[c]
-WaveletMapIndexed[c\[Rule]Q[c],lossy]*)
+(*Map[Q,lossy[All]]*)
 
 
 (* Experiment with coefficients. *)
-lossless["Properties"]
-lossless[{"WaveletIndex","TreeView"}]
+lossy["Properties"]
+lossy[{"WaveletIndex","TreeView"}]
 Print["Rules:"]
-lossless[All,"Rules"]
+lossy[All,"Rules"]
 Print["Values:"]
-lossless[All,"Values"]
-(*Export["lossless_coefficients.txt",%]*)
+lossy[All,"Values"]
+(*Export["lossy_coefficients.txt",%]*)
 
 
 (* Experiment with R. *)
 RSet["cof",10]
-REvaluate["environment()"]
-REvaluate["source('C:/Users/mgaik/Dropbox/Programming/R/Math-414-Final-Project/main.R')"]
+(*REvaluate["source('C:/Users/mgaik/Dropbox/Programming/R/Math-414-Final-Project/main.R')"]*)
 
 
 (* ::Subsubsection:: *)

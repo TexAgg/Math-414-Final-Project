@@ -5,8 +5,6 @@
 rm(list=ls())
 
 # https://cran.r-project.org/web/packages/wavelets/wavelets.pdf
-#library(wavelets)
+library(wavelets)
 
 print("Hey")
-
-x = 7
