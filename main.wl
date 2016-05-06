@@ -58,7 +58,7 @@ Export["baby.png",baby]
 
 
 (* Lossless compression. *)
-lossless = DiscreteWaveletTransform[baby, CDFWavelet["5/3"],2]
+lossless = LiftingWaveletTransform[baby, CDFWavelet["5/3"],2]
 
 
 (* Perform DWT on numerical image values:
@@ -81,7 +81,7 @@ Export["lossless_family.png",%]
 
 
 (* Lossy compression. *)
-lossy = DiscreteWaveletTransform[baby,CDFWavelet["9/7"],2]
+lossy = LiftingWaveletTransform[baby,CDFWavelet["9/7"],2]
 
 
 lossyPlot = WaveletImagePlot[lossy,BaseStyle->Red]
@@ -183,8 +183,13 @@ ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 lossless[Automatic,"Image"]
 
 
+ByteCount[Compress[%]]
 ByteCount[Compress[losslessPlot]]
 ByteCount[Compress[baby]]
+
+
+ByteCount[InputForm[baby]]
+ByteCount[InputForm[lossless[Automatic,"Image"]]]
 
 
 
