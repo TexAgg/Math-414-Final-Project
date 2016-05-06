@@ -120,7 +120,7 @@ https://reference.wolfram.com/language/ref/WaveletMapIndexed.html *)
 
 
 (* http://www.whydomath.org/node/wavlets/jpeg2000quantization.html *)
-Clear[q,t,d,R,c,i]
+Clear[q,t,d,R,c,i,Q]
 R=8;
 i=2;
 c=8.5;
@@ -135,9 +135,26 @@ Try applying it to the ImageData. *)
 q[t_,w_] := Sign[t]*Floor[Abs[t]/(\[Tau]/2^w)]
 
 
+Q[t_,w_] := ImageMultiply[ImageApply[Sign,t],ImageApply[Floor,ImageMultiply[ImageApply[Abs,t],1/(\[Tau]/2^w)]]]
+
+
+(*Q[baby,3]*)
+(* Holy crap I did something. *)
+(*Q[#,2]&/@lossy[All,{"Values","Image"}]*)
+
+
+WaveletMapIndexed[Q,lossy]
+Q[baby,3]
+ImageDimensions[%]
+ImageDimensions[baby]
+
+
 (* This gets me the data, but I need it in image form. 
 Also it is slow. *)
-(*WaveletMapIndexed[q,DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]]*)
+(*test = WaveletMapIndexed[q,DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]]*)
+
+
+(*WaveletMapIndexed[c\[Rule]Image[c],test]*)
 
 
 (* Experiment with R. *)
@@ -154,3 +171,6 @@ ByteCount[Compress[baby]]
 (* https://reference.wolfram.com/language/ref/ImageMeasurements.html *)
 ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 186*240*8
+
+
+

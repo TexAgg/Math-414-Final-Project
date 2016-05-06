@@ -111,6 +111,7 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 
 \begin{enumerate}
 	
+	% PREPROCESSING %
 	\item\textbf{Preprocecessing:}
 	If the image is a color image, the image needs to be converted to the YCbCr color space\cite{colorspace}
 	from the standard RGB color space.
@@ -118,15 +119,18 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 	After the color space transform, sometimes the image will be split up into different tiles of equal size,
 	but this is optional.
 	
+	% TRANSFORM %
 	\item\textbf{Transform:}
 	The Discrete Wavelet Transform is the most impportant feature of the JPEG 2000.
 	In the case of a lossy compression, a Cohen-Daubechies-Feauveau (CDF) 9/7 wavelet is used,
 	while the CDF 5/3 wavelet is used for lossless compression.
 	In both cases, between two and three iterations are computed.
 	
+	% QUANTIZATION %
 	\item\textbf{Quantization:}
 	Quantization refers to the process of compressing a range of values into a single value,
 	and is used in lossy compression.
+	Quantization is usually the main source of error in compression.\cite{clifford}
 	If the compression is lossless, then no quantization is done.
 	Figure \ref{fig:losslessbaby} is encoded and the algorithm is completed.
 	
@@ -140,9 +144,28 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 	\end{equation}
 	where $d$ is the step size.\cite{whydomath}
 	For a lossless compression, $d=1$.
+	For a lossy compression, a different step size is used for each level,
+	using the base step size, which is defined as
+	\begin{equation}
+		\tau = 2^{R+i-c}(1+f/2^{11}).
+	\end{equation}
+	$R$ is the number of bits required to represent the original intensities,
+	$i$ is the number of levels of the Discrete Wavelet Transform,
+	and $c$ and $f$ are used in blurring.
+	The step size at each level is $d=\tau/2^i$.
 	
+	% ENCODING %
 	\item\textbf{Encoding:}
 	For encoding, Embedded Block Coding with Optimized Truncation, or EBCOT, is used.
+	The EBCOT algorithm is used to code the wavelet coefficients.
+	
+	The EBCOT algorithm uses subband coding.
+	The result of the quantization step is a set of subbands, 
+	where a subband is a collection of real coefficients representing a certain
+	frequency range and region of the image.
+	
+	Each subband is split into different blocks,
+	and each block is then coded independantly.\cite{hp}
 	
 \end{enumerate}
 
