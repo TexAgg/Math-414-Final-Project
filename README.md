@@ -1,7 +1,7 @@
 # Math-414-Final-Project
 Final [project](http://www.math.tamu.edu/~francis.narcowich/m414/s16/projects_s16.html),
 using wavelets.
-Demonstrating image decompression.
+Demonstrating image compression, and the JPEG 2000.
 
 ---
 
