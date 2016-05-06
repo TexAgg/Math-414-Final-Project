@@ -53,7 +53,7 @@ Export["baby.png",baby]
 (* How do I subtract intensity values? *)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Transformation*)
 
 
@@ -65,7 +65,7 @@ lossless = DiscreteWaveletTransform[baby, CDFWavelet["5/3"],2]
 DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2] *)
 
 
-WaveletImagePlot[lossless, BaseStyle->Red]
+losslessPlot = WaveletImagePlot[lossless, BaseStyle->Red]
 Export["losslessbaby.png",%]
 
 
@@ -143,10 +143,8 @@ Q[t_,w_] := ImageMultiply[ImageApply[Sign,t],ImageApply[Floor,ImageMultiply[Imag
 (*Q[#,2]&/@lossy[All,{"Values","Image"}]*)
 
 
-WaveletMapIndexed[Q,lossy]
+(*WaveletMapIndexed[Q,lossy]*)
 Q[baby,3]
-ImageDimensions[%]
-ImageDimensions[baby]
 
 
 (* This gets me the data, but I need it in image form. 
@@ -162,6 +160,15 @@ RSet["cof",10]
 (*REvaluate["source('C:/Users/mgaik/Dropbox/Programming/R/Math-414-Final-Project/main.R')"]*)
 
 
+(* ::Subsubsubsection:: *)
+(*Maybe I'm on to something*)
+
+
+G[img_,wind_] := ImageApply[Round,img]
+WaveletMapIndexed[G,lossy]
+InverseWaveletTransform[%]
+
+
 (* ::Subsubsection:: *)
 (*Encoding*)
 
@@ -171,6 +178,13 @@ ByteCount[Compress[baby]]
 (* https://reference.wolfram.com/language/ref/ImageMeasurements.html *)
 ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 186*240*8
+
+
+lossless[Automatic,"Image"]
+
+
+ByteCount[Compress[losslessPlot]]
+ByteCount[Compress[baby]]
 
 
 
