@@ -198,6 +198,18 @@ Figures \ref{fig:lossy_family} and \ref{fig:lossless_family} show plots of the $
 and $\psi(x)$ for the lossy and lossless transforms, respectively.
 
 Similar to the Daubechies Wavelet, the CDF wavelet is constructed using a polynomial.
+For every positive integer $A$ there is a unique polynomial $Q_A(x)$ of degree $A-1$ such that
+\[(1-\frac{x}{2})^AQ_A(x)+(\frac{x}{2})^AQ_A(2-x)=1,\]
+where $Q_A$ is factored so that
+\[Q_A(x)=q_{prim}(x)q_{dual}(x).\]
+$q_{prim}$ and $q_{dual}$ are polynomials with real coefficients and a constant coefficient of 1.
+Then,
+\begin{align*}
+	a_{prim}(z) =& 2z^d(\frac{1+z}{2})^Aq_{prim}(1-\frac{z+z^{-1}}{2}) \\
+	a_{dual}(z) =& 2z^d(\frac{1+z}{2})^Aq_{dual}(1-\frac{z+z^{-1}}{2})
+\end{align*}
+are a pair of biorthogonal scaling sequences.
+Here, $d$ is an arbitrary integer used to center the sequences and make the filters causal.
 
 Since the CDF wavelet is biorthogonal, there are two wavelet bases, $\psi_{mn}$ and $\tilde{\psi}_{mn}$,
 which are shifts and scalings of $\psi$ and $\tilde{\psi}$.\cite{cdf}
@@ -205,7 +217,6 @@ For any $f\in L^2(\mathbb{R})$, we have that
 \begin{equation}
 	f = \sum_{j,k\in\mathbb{Z}}\langle f,\tilde{\psi}_{jk}\rangle\psi_{jk}=\sum_{j,k\in\mathbb{Z}}\langle f,\psi_{jk}\rangle\tilde{\psi}_{jk}.
 \end{equation}
-
 The two scaling functions $\phi(x)$ and $\tilde{\phi}(x)$ are referred to 
 as the primal and dual scaling functions, respectively.\cite{cdfwhat}
 As usual, dilations and translations of a function $g(x)$ are defined by 
