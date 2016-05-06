@@ -165,7 +165,7 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 	frequency range and region of the image.
 	
 	Each subband is split into different blocks,
-	and each block is then coded independantly.\cite{hp}
+	and each block is then coded independently.\cite{hp}
 	
 \end{enumerate}
 
@@ -197,12 +197,19 @@ satisfies four properties\cite{old}:
 Figures \ref{fig:lossy_family} and \ref{fig:lossless_family} show plots of the $\phi(x)$
 and $\psi(x)$ for the lossy and lossless transforms, respectively.
 
+Similar to the Daubechies Wavelet, the CDF wavelet is constructed using a polynomial.
+
 Since the CDF wavelet is biorthogonal, there are two wavelet bases, $\psi_{mn}$ and $\tilde{\psi}_{mn}$,
 which are shifts and scalings of $\psi$ and $\tilde{\psi}$.\cite{cdf}
 For any $f\in L^2(\mathbb{R})$, we have that
 \begin{equation}
 	f = \sum_{j,k\in\mathbb{Z}}\langle f,\tilde{\psi}_{jk}\rangle\psi_{jk}=\sum_{j,k\in\mathbb{Z}}\langle f,\psi_{jk}\rangle\tilde{\psi}_{jk}.
 \end{equation}
+
+The two scaling functions $\phi(x)$ and $\tilde{\phi}(x)$ are referred to 
+as the primal and dual scaling functions, respectively.\cite{cdfwhat}
+As usual, dilations and translations of a function $g(x)$ are defined by 
+\[g_{j,k}(x)=2^{j/2}g(2^jx-k).\]
 
 %\bigskip
 %\noindent
