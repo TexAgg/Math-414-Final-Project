@@ -61,7 +61,8 @@ Export["baby.png",baby]
 lossless = DiscreteWaveletTransform[baby, CDFWavelet["5/3"],2]
 
 
-DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]
+(* Perform DWT on numerical image values:
+DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2] *)
 
 
 WaveletImagePlot[lossless, BaseStyle->Red]
@@ -102,7 +103,8 @@ Export["lossy_family.png",%]
 (*Quantization*)
 
 
-(* I don't know how to do this. *)
+(* I don't know how to do this. 
+http://www.mathworks.com/matlabcentral/fileexchange/11764-wsq-image-library--for-fingerprints--v-2-8 *)
 
 
 (* https://reference.wolfram.com/language/ref/ColorQuantize.html *)
@@ -126,22 +128,16 @@ fr=8;
 \[Tau] = 2^(R-c+i)*(1+fr/2^(11))
 (* Step size. *)
 d = \[Tau];
-(* Quantization function. *)
+(* Quantization function. 
+This needs to accept an image as an argument,
+and return an image. 
+Try applying it to the ImageData. *)
 q[t_,w_] := Sign[t]*Floor[Abs[t]/(\[Tau]/2^w)]
 
 
-(* This gets me the data, but I need it in image form. *)
-WaveletMapIndexed[q,DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]]
-
-
-(* Experiment with coefficients. *)
-lossy["Properties"]
-lossy[{"WaveletIndex","TreeView"}]
-Print["Rules:"]
-lossy[All,"Rules"]
-Print["Values:"]
-lossy[All,"Values"]
-(*Export["lossy_coefficients.txt",%]*)
+(* This gets me the data, but I need it in image form. 
+Also it is slow. *)
+(*WaveletMapIndexed[q,DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]]*)
 
 
 (* Experiment with R. *)
@@ -158,3 +154,6 @@ ByteCount[Compress[baby]]
 (* https://reference.wolfram.com/language/ref/ImageMeasurements.html *)
 ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 186*240*8
+
+
+
