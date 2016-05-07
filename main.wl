@@ -44,7 +44,8 @@ https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
 
 
 (* https://reference.wolfram.com/language/ref/format/JPEG2000.html *)
-Import["ExampleData/girl.jp2"];
+(*Import["ExampleData/girl.jp2"];*)
+Import["ExampleData/spikey2.png"];
 
 
 (* ::Subsubsection:: *)
@@ -55,12 +56,12 @@ Import["ExampleData/girl.jp2"];
 For future reference a YCrCb transform example is given here:
 http://community.wolfram.com/groups/-/m/t/233186?p_p_auth=21UnjxGl *)
 baby = ColorConvert[%,"Grayscale"]
-Export["baby.png",baby]
+Export[{"baby.png","baby.jp2"},baby]
 
 (* How do I subtract intensity values? *)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Transformation*)
 
 
@@ -125,7 +126,25 @@ Export["quantBabyPlot.png",quantPlot]
 
 lossyBaby = InverseWaveletTransform[quant]
 (* Exporting as a .jp2 will automatically perform the encoding. *)
-Export[{"lossyBaby.png", "lossyBaby.jp2"},lossyBaby]
+Export["finalLossyBaby.jp2",lossyBaby,"ImageEncoding"->"JPEG2000"]
+Export["finalLossyBaby.png",lossyBaby]
+
+
+losslessBaby = InverseWaveletTransform[lossless]
+(* Exporting as a .jp2 will automatically perform the encoding. *)
+Export["finalLosslessBaby.jp2",losslessBaby]
+Export["finalLosslessBaby.png",losslessBaby,"ImageEncoding"->"Lossless"]
+
+
+(* ::Section:: *)
+(*Misc.*)
+
+
+(* Import figures for the report. *)
+
+
+Import["http://www.verypdf.com/pdfinfoeditor/jpeg-jpeg2k-1.png"]
+Export["comparison.png",%]
 
 
 

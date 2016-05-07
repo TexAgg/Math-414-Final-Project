@@ -97,7 +97,7 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.6]{resources/lossybaby.png}
-	\caption{DWT using the lossy 9/7 filter.}
+	\caption{DWT coefficients using the lossy 9/7 filter.}
 	\label{fig:lossybaby}
 \end{figure}
 
@@ -105,7 +105,7 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.6]{resources/losslessbaby.png}
-	\caption{DWT using the lossless 5/3 filter.}
+	\caption{DWT coefficients using the lossless 5/3 filter.}
 	\label{fig:losslessbaby}
 \end{figure}
 
@@ -258,6 +258,24 @@ For the lossy compression, the quantiation function
 \[q(t)=\frac{\floor{t*16}}{16}\]
 was applied to each coefficient for simplicity.
 Figure \ref{fig:quantBabyPlot} shows the result of quantization on the 9/7 wavelet coefficients.
+
+\begin{figure}
+	\centering
+	\includegraphics{resources/finalLossyBaby.png}
+	\caption{The compressed image, after a lossy compression.}
+	\label{fig:finalLossyBaby}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics{resources/finalLosslessBaby.png}
+	\caption{The compressed image, after a lossless compression.}
+	\label{fig:finalLosslessBaby}
+\end{figure}
+
+The final step is encoding.
+This was done using built-in Mathematica functions.
+Figures \ref{fig:finalLossyBaby} and ref{fig:finalLosslessBaby} show the results of lossy and lossless compressions,
+respectively.
 
 
 %%%%%%%%%%%%%%
