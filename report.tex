@@ -36,8 +36,6 @@
 
 In order to efficiently send and receive images, it is often useful to compress them, 
 since much of the data may be irrelevant or redundant.
-Also, since plaintext consumes less memory than image files, it becomes important to encode images,
-or store them as plaintext.
 One of the many ways of accomplishing this is through wavelets.
 
 There are two types of image compression: lossy and lossless.
@@ -156,7 +154,9 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 	
 	% ENCODING %
 	\item\textbf{Encoding:}
-	For encoding, Embedded Block Coding with Optimized Truncation, or EBCOT, is used.
+	For encoding, Embedded Block Coding with Optimized Truncation, or EBCOT, is used,
+	which is another difference the JPEG 2000 has from JPEG, 
+	which uses Huffman Coding.
 	The EBCOT algorithm is used to code the wavelet coefficients.
 	
 	The EBCOT algorithm uses subband coding.
@@ -166,6 +166,8 @@ preprocess, transformation, quantization, and encoding\cite{whydomath}.
 	
 	Each subband is split into different blocks,
 	and each block is then coded independently.\cite{hp}
+	For more information on the EBCOT method of coding, 
+	see \cite{ebcot}.
 	
 \end{enumerate}
 
@@ -279,27 +281,42 @@ show the final results of lossy and lossless compressions, respectively.
 
 \begin{figure}[p]
 	\centering
-	\includegraphics{resources/example/originalExample.png}
+	\includegraphics[scale=0.35]{resources/example/originalExample.png}
 	\caption{An untransformed image.}
 	\label{fig:originalExample}
 \end{figure}
-\begin{figure}[p]
+\begin{figure}
     \centering
-    \includegraphics{resources/example/losslessTransform.png}
+    \includegraphics[scale=0.35]{resources/example/losslessTransform.png}
     \caption{The result of the CDF 5/3 wavelet transform.}
     \label{fig:losslessTransform}
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics{resources/example/lossyTransform.png}
+    \includegraphics[scale=0.35]{resources/example/lossyTransform.png}
     \caption{The result of a CDF 9/7 wavelet transform.}
     \label{fig:lossyTransform}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35]{resources/example/exampleQuant.png}
+	\caption{The result of quantizing the coefficients of the 9/7 DWT.}
+	\label{fig:exampleQuant}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35]{resources/example/exampleCompressed.png}
+	\caption{The compressed image, using lossy techniques.}
+	\label{fig:exampleCompressed}
 \end{figure}
 
 A more complete example can be found at \cite{whydomath}.
 Figure \ref{fig:originalExample} shows the original, uncompressed image.
 Figure \ref{fig:losslessTransform} shows the result of a CDF 5/3 wavelet transform,
-and \ref{fig:lossyTransform} shows the result of a CDF 9/7 wavelet transform.
+and Figure \ref{fig:lossyTransform} shows the result of a CDF 9/7 wavelet transform.
+The quantized coefficients of the CDF 9/7 DWT are shown in Figure \ref{fig:exampleQuant}.
+The compressed image is shown in Figure \ref{fig:exampleCompressed}, 
+and can be compared with Figure \ref{fig:originalExample}.
 
 
 %%%%%%%%%%%%%%

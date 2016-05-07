@@ -9,6 +9,7 @@ Demonstrating image compression, and the JPEG 2000.
 The report cannot be compiled until the images are installed.
 The images are downloaded when [main.wl](https://github.com/TexAgg/Math-414-Final-Project/blob/master/main.wl) is run.
 Then the pdf is compiled with the command `make` and cleaned with `make clean`.
+The build system is pdflatex.
 
 ---
 

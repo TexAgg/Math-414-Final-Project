@@ -152,18 +152,28 @@ SetDirectory["example"]
 
 
 (* The original image. *)
-Import["http://www.whydomath.org/node/wavlets/images/Smalljpeg2000image.gif"]
+Import["http://www.whydomath.org/node/wavlets/images/Largejpeg2000image.gif"]
 Export["originalExample.png",%]
 
 
 (* 9/7 lossy transform. *)
-Import["http://www.whydomath.org/node/wavlets/images/Smalljpeg2000wt97.gif"]
+Import["http://www.whydomath.org/node/wavlets/images/Largejpeg2000wt97.gif"]
 Export["lossyTransform.png",%]
 
 
 (* 5/3 lossless transform. *)
-Import["http://www.whydomath.org/node/wavlets/images/Smalljpeg2000wt53.gif"]
+Import["http://www.whydomath.org/node/wavlets/images/Largejpeg2000wt53.gif"]
 Export["losslessTransform.png",%]
+
+
+(* Quantization of the 9/7 wavelet coefficients. *)
+Import["http://www.whydomath.org/node/wavlets/images/Largejpeg2000wt97quant.gif"]
+Export["exampleQuant.png",%]
+
+
+(* JPEG 2000 compressed image. *)
+Import["http://www.whydomath.org/node/wavlets/images/Largejpeg2000compressed.gif"]
+Export["exampleCompressed.png",%]
 
 
 

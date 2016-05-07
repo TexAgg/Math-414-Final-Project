@@ -77,3 +77,4 @@ report-blx.bib
 
 # Any .jp2 files or other files related to the analysis
 *.jp2
+*.png
