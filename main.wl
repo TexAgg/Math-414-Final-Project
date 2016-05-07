@@ -24,7 +24,7 @@ Needs["RLink`"]
 InstallR["RHomeLocation"->"C:\\Program Files\\R\\R-3.2.3"]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*JPEG2000 Compression*)
 
 
@@ -140,11 +140,30 @@ Export["finalLosslessBaby.png",losslessBaby,"ImageEncoding"->"Lossless"]
 (*Misc.*)
 
 
-(* Import figures for the report. *)
+(* Import external images and figures for the report. *)
 
 
 Import["http://www.verypdf.com/pdfinfoeditor/jpeg-jpeg2k-1.png"]
 Export["comparison.png",%]
+
+
+(* Switch to a seperate directory with the example images. *)
+SetDirectory["example"]
+
+
+(* The original image. *)
+Import["http://www.whydomath.org/node/wavlets/images/Smalljpeg2000image.gif"]
+Export["originalExample.png",%]
+
+
+(* 9/7 lossy transform. *)
+Import["http://www.whydomath.org/node/wavlets/images/Smalljpeg2000wt97.gif"]
+Export["lossyTransform.png",%]
+
+
+(* 5/3 lossless transform. *)
+Import["http://www.whydomath.org/node/wavlets/images/Smalljpeg2000wt53.gif"]
+Export["losslessTransform.png",%]
 
 
 
