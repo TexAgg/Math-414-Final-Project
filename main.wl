@@ -123,7 +123,7 @@ d = \[Tau];
 (* Quantization function. 
 This needs to accept an image as an argument,
 and return an image. *)
-q[t_,w_] := Sign[t]*Floor[Abs[t]/(2/(2^w+1))]
+q[t_,w_] := Sign[t]*Floor[Abs[t]/(2/(2^w))]
 
 
 Clear[img,wind]
@@ -137,8 +137,9 @@ ImageDimensions[%]
 ImageDimensions[baby]
 
 
-lossy[Automatic,{"Values","Image"}]
-Q[#,3]&/@%
+ted = lossy[Automatic,{"Values","Image"}]
+Q[#,3]&/@ted
+MapIndexed[Q,ted]
 
 
 (*Q[baby,3]*)
@@ -160,7 +161,7 @@ RSet["cof",10]
 (*Actual implimentation*)
 
 
-G[img_,wind_] := ImageApply[Floor,img]
+G[img_,wind_] := ImageApply[Floor[#*4]/4&,img]
 quant = WaveletMapIndexed[G,lossy]
 InverseWaveletTransform[quant]
 WaveletImagePlot[quant]
