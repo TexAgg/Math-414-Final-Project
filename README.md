@@ -13,7 +13,7 @@ The build system is pdflatex.
 
 ---
 
-## Resources
+## Additional resources
 
 ### JPEG 2000
 * http://petapixel.com/2015/09/12/jpeg-2000-the-better-alternative-to-jpeg-that-never-made-it-big/
