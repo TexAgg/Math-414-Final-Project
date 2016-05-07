@@ -128,11 +128,4 @@ lossyBaby = InverseWaveletTransform[quant]
 Export[{"lossyBaby.png", "lossyBaby.jp2"},lossyBaby]
 
 
-StringForm["Size of original image: `` bytes.", ByteCount[Compress[baby]]]
-StringForm[
-	"Size of compressed image: `` bytes.", 
-	ByteCount[Compress[lossless[Automatic,{"Image","Values"}]]]
-]
-
-
 
