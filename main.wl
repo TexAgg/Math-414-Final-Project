@@ -1,5 +1,12 @@
 (* ::Package:: *)
 
+(* 
+Matt Gaikema
+Math 414 Final Project
+Implementation of the JPEG 2000 compression.
+*)
+
+
 (* ::Title:: *)
 (*JPEG 2000 Demonstration*)
 
@@ -65,7 +72,7 @@ lossless = LiftingWaveletTransform[baby, CDFWavelet["5/3"],2]
 DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2] *)
 
 
-losslessPlot = WaveletImagePlot[lossless, BaseStyle->Red]
+losslessPlot = WaveletImagePlot[lossless]
 Export["losslessbaby.png",%]
 
 
@@ -84,7 +91,7 @@ Export["lossless_family.png",%]
 lossy = LiftingWaveletTransform[baby,CDFWavelet["9/7"],2]
 
 
-lossyPlot = WaveletImagePlot[lossy,BaseStyle->Red]
+lossyPlot = WaveletImagePlot[lossy]
 Export["lossybaby.png",%]
 
 
@@ -123,23 +130,11 @@ d = \[Tau];
 (* Quantization function. 
 This needs to accept an image as an argument,
 and return an image. *)
-q[t_,w_] := Sign[t]*Floor[Abs[t]/(2/(2^w))]
+q[t_,w_] := Sign[t]*Floor[Abs[t]/(2/(2^(w-1)))]
 
 
 Clear[img,wind]
 Q[img_,wind_] := ImageApply[q[#,wind]&,img] 
-
-
-WaveletMapIndexed[Q,lossy]
-WaveletImagePlot[%]
-Q[baby,2]
-ImageDimensions[%]
-ImageDimensions[baby]
-
-
-ted = lossy[Automatic,{"Values","Image"}]
-Q[#,3]&/@ted
-MapIndexed[Q,ted]
 
 
 (*Q[baby,3]*)
@@ -161,10 +156,20 @@ RSet["cof",10]
 (*Actual implimentation*)
 
 
-G[img_,wind_] := ImageApply[Floor[#*4]/4&,img]
+(* Using a simpler function because otherwise it doesn't work. *)
+G[img_,wind_] := ImageApply[Floor[#/2]&,img]
 quant = WaveletMapIndexed[G,lossy]
+
+
 InverseWaveletTransform[quant]
+
+
+ByteCount[Compress[%]]
+ByteCount[Compress[baby]]
+
+
 WaveletImagePlot[quant]
+lossyPlot
 
 
 (* ::Subsubsection:: *)
@@ -178,16 +183,11 @@ ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
 186*240*8
 
 
-lossless[Automatic,"Image"]
-
-
-ByteCount[Compress[%]]
-ByteCount[Compress[losslessPlot]]
-ByteCount[Compress[baby]]
-
-
-ByteCount[InputForm[baby]]
-ByteCount[InputForm[lossless[Automatic,"Image"]]]
+StringForm["Size of original image: `` bytes.", ByteCount[Compress[baby]]]
+StringForm[
+	"Size of compressed image: `` bytes.", 
+	ByteCount[Compress[lossless[Automatic,{"Image","Values"}]]]
+]
 
 
 

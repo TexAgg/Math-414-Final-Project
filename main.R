@@ -6,5 +6,10 @@ rm(list=ls())
 
 # https://cran.r-project.org/web/packages/wavelets/wavelets.pdf
 library(wavelets)
+# https://cran.r-project.org/web/packages/wavethresh/wavethresh.pdf
+library(wavethresh)
 
-print("Hey")
+data(lennon)
+image(lennon)
+lwd = imwd(lennon)
+compress.imwd(lwd)

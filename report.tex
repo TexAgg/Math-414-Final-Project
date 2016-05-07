@@ -241,10 +241,15 @@ As usual, dilations and translations of a function $g(x)$ are defined by
 
 The source code for the implemented transformations in Mathematica can be found at \cite{implement}.
 Figure \ref{fig:original} is the image, untransformed and uncompressed.
-Since it is a grayscale image, no color space conversions need to be done.
+Since it is a grayscale image, no color space conversions needs to be done.
 Figures \ref{fig:lossybaby} and \ref{fig:losslessbaby} show the results of a lossy and lossless 
 discrete wavelet transforms, respectively.
+
 The next step is quantization.
+For the lossless compression, this step is skipped.
+For the lossy compression, the quantiation function
+\[q(t)=\floor{t/2}\]
+was applied to each coefficient for simplicity.
 
 
 %%%%%%%%%%%%%%
