@@ -47,7 +47,7 @@ https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
 Import["ExampleData/girl.jp2"];
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Preprocessing*)
 
 
@@ -60,7 +60,7 @@ Export["baby.png",baby]
 (* How do I subtract intensity values? *)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Transformation*)
 
 
@@ -110,77 +110,22 @@ Export["lossy_family.png",%]
 (*Quantization*)
 
 
-(* I don't know how to do this. 
-http://www.mathworks.com/matlabcentral/fileexchange/11764-wsq-image-library--for-fingerprints--v-2-8 *)
-
-
-(* How do I quantize? 
-https://reference.wolfram.com/language/ref/WaveletMapIndexed.html *)
-
-
-(* http://www.whydomath.org/node/wavlets/jpeg2000quantization.html *)
-Clear[q,t,d,R,c,i,Q,w]
-R=8;
-i=2;
-c=8.5;
-fr=8;
-\[Tau] = 2^(R-c+i)*(1+fr/2^(11))
-(* Step size. *)
-d = \[Tau];
-(* Quantization function. 
-This needs to accept an image as an argument,
-and return an image. *)
-q[t_,w_] := Sign[t]*Floor[Abs[t]/(2/(2^(w-1)))]
-
-
-Clear[img,wind]
-Q[img_,wind_] := ImageApply[q[#,wind]&,img] 
-
-
-(*Q[baby,3]*)
-(* Holy crap I did something. *)
-(*Q[#,2]&/@lossy[All,{"Values","Image"}]*)
-
-
-(* This gets me the data, but I need it in image form. 
-Also it is slow. *)
-(*test = WaveletMapIndexed[q,DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]]*)
-
-
-(* Experiment with R. *)
-RSet["cof",10]
-(*REvaluate["source('C:/Users/mgaik/Dropbox/Programming/R/Math-414-Final-Project/main.R')"]*)
-
-
-(* ::Subsubsubsection:: *)
-(*Actual implimentation*)
-
-
 (* Using a simpler function because otherwise it doesn't work. *)
-G[img_,wind_] := ImageApply[Floor[#/2]&,img]
+G[img_,wind_] := ImageApply[Floor[#*16]/16&,img]
 quant = WaveletMapIndexed[G,lossy]
 
 
-InverseWaveletTransform[quant]
-
-
-ByteCount[Compress[%]]
-ByteCount[Compress[baby]]
-
-
-WaveletImagePlot[quant]
-lossyPlot
+quantPlot = WaveletImagePlot[quant]
+Export["quantBabyPlot.png",quantPlot]
 
 
 (* ::Subsubsection:: *)
 (*Encoding*)
 
 
-(* I have no idea what to do for this part. *)
-ByteCount[Compress[baby]]
-(* https://reference.wolfram.com/language/ref/ImageMeasurements.html *)
-ImageMeasurements[baby,{"Dimensions","SampleDepth"}]
-186*240*8
+lossyBaby = InverseWaveletTransform[quant]
+(* Exporting as a .jp2 will automatically perform the encoding. *)
+Export[{"lossyBaby.png", "lossyBaby.jp2"},lossyBaby]
 
 
 StringForm["Size of original image: `` bytes.", ByteCount[Compress[baby]]]

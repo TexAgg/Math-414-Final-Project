@@ -74,3 +74,6 @@ vignettes/*.pdf
 report-blx.bib
 *.blg
 *.bbl
+
+# Any .jp2 files or other files related to the analysis
+*.jp2

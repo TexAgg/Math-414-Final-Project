@@ -245,11 +245,19 @@ Since it is a grayscale image, no color space conversions needs to be done.
 Figures \ref{fig:lossybaby} and \ref{fig:losslessbaby} show the results of a lossy and lossless 
 discrete wavelet transforms, respectively.
 
+\begin{figure}
+	\centering
+	\includegraphics{resources/quantBabyPlot.png}
+	\caption{The result of quantization on the 9/7 wavelet coefficients.}
+	\label{fig:quantBabyPlot}
+\end{figure}
+
 The next step is quantization.
 For the lossless compression, this step is skipped.
 For the lossy compression, the quantiation function
-\[q(t)=\floor{t/2}\]
+\[q(t)=\frac{\floor{t*16}}{16}\]
 was applied to each coefficient for simplicity.
+Figure \ref{fig:quantBabyPlot} shows the result of quantization on the 9/7 wavelet coefficients.
 
 
 %%%%%%%%%%%%%%
