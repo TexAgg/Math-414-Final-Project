@@ -107,20 +107,12 @@ Export["lossy_family.png",%]
 http://www.mathworks.com/matlabcentral/fileexchange/11764-wsq-image-library--for-fingerprints--v-2-8 *)
 
 
-(* https://reference.wolfram.com/language/ref/ColorQuantize.html *)
-
-
-(* Color-quantize the lossy DWT. 
-I think this is not what I want. *)
-quant = ColorQuantize[lossyPlot,7]
-
-
 (* How do I quantize? 
 https://reference.wolfram.com/language/ref/WaveletMapIndexed.html *)
 
 
 (* http://www.whydomath.org/node/wavlets/jpeg2000quantization.html *)
-Clear[q,t,d,R,c,i,Q]
+Clear[q,t,d,R,c,i,Q,w]
 R=8;
 i=2;
 c=8.5;
@@ -130,12 +122,23 @@ fr=8;
 d = \[Tau];
 (* Quantization function. 
 This needs to accept an image as an argument,
-and return an image. 
-Try applying it to the ImageData. *)
-q[t_,w_] := Sign[t]*Floor[Abs[t]/(\[Tau]/2^w)]
+and return an image. *)
+q[t_,w_] := Sign[t]*Floor[Abs[t]/(2/(2^w+1))]
 
 
-Q[t_,w_] := ImageMultiply[ImageApply[Sign,t],ImageApply[Floor,ImageMultiply[ImageApply[Abs,t],1/(\[Tau]/2^w)]]]
+Clear[img,wind]
+Q[img_,wind_] := ImageApply[q[#,wind]&,img] 
+
+
+WaveletMapIndexed[Q,lossy]
+WaveletImagePlot[%]
+Q[baby,2]
+ImageDimensions[%]
+ImageDimensions[baby]
+
+
+lossy[Automatic,{"Values","Image"}]
+Q[#,3]&/@%
 
 
 (*Q[baby,3]*)
@@ -143,16 +146,9 @@ Q[t_,w_] := ImageMultiply[ImageApply[Sign,t],ImageApply[Floor,ImageMultiply[Imag
 (*Q[#,2]&/@lossy[All,{"Values","Image"}]*)
 
 
-(*WaveletMapIndexed[Q,lossy]*)
-Q[baby,3]
-
-
 (* This gets me the data, but I need it in image form. 
 Also it is slow. *)
 (*test = WaveletMapIndexed[q,DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]]*)
-
-
-(*WaveletMapIndexed[c\[Rule]Image[c],test]*)
 
 
 (* Experiment with R. *)
@@ -161,12 +157,13 @@ RSet["cof",10]
 
 
 (* ::Subsubsubsection:: *)
-(*Maybe I'm on to something*)
+(*Actual implimentation*)
 
 
-G[img_,wind_] := ImageApply[Round,img]
-WaveletMapIndexed[G,lossy]
-InverseWaveletTransform[%]
+G[img_,wind_] := ImageApply[Floor,img]
+quant = WaveletMapIndexed[G,lossy]
+InverseWaveletTransform[quant]
+WaveletImagePlot[quant]
 
 
 (* ::Subsubsection:: *)
