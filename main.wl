@@ -24,7 +24,7 @@ Needs["RLink`"]
 InstallR["RHomeLocation"->"C:\\Program Files\\R\\R-3.2.3"]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*JPEG2000 Compression*)
 
 
@@ -57,8 +57,6 @@ For future reference a YCrCb transform example is given here:
 http://community.wolfram.com/groups/-/m/t/233186?p_p_auth=21UnjxGl *)
 baby = ColorConvert[%,"Grayscale"]
 Export[{"baby.png","baby.jp2"},baby]
-
-(* How do I subtract intensity values? *)
 
 
 (* ::Subsubsection:: *)
@@ -136,7 +134,7 @@ Export["finalLosslessBaby.jp2",losslessBaby]
 Export["finalLosslessBaby.png",losslessBaby,"ImageEncoding"->"Lossless"]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Misc.*)
 
 
