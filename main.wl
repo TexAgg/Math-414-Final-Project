@@ -138,7 +138,7 @@ Export["finalLosslessBaby.jp2",losslessBaby,"ImageEncoding"->"Lossless"]
 Export["finalLosslessBaby.png",losslessBaby]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Misc.*)
 
 
@@ -149,7 +149,7 @@ Export["finalLosslessBaby.png",losslessBaby]
 (* Import external images and figures for the report. *)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Comparison*)
 
 
