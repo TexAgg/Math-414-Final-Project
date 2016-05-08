@@ -329,36 +329,47 @@ when performing a JPEG 2000 compression.
 Figures \ref{fig:finalLossyBaby} and \ref{fig:finalLosslessBaby} 
 show the final results of lossy and lossless compressions, respectively.
 
-\begin{figure}[p]
+% Original image. 
+\begin{figure}
 	\centering
-	\includegraphics[scale=0.35]{resources/example/originalExample.png}
+	\includegraphics[scale=0.25]{resources/example/originalExample.png}
 	\caption{An untransformed image.}
 	\label{fig:originalExample}
 \end{figure}
+
+% CDF 5/3 transform.
 \begin{figure}
     \centering
-    \includegraphics[scale=0.35]{resources/example/losslessTransform.png}
+    \includegraphics[scale=0.25]{resources/example/losslessTransform.png}
     \caption{The result of the CDF 5/3 wavelet transform.}
     \label{fig:losslessTransform}
 \end{figure}
+
+% CDF 9/7 transform.
 \begin{figure}
     \centering
-    \includegraphics[scale=0.35]{resources/example/lossyTransform.png}
+    \includegraphics[scale=0.25]{resources/example/lossyTransform.png}
     \caption{The result of a CDF 9/7 wavelet transform.}
     \label{fig:lossyTransform}
 \end{figure}
+
+% Quantized image.
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35]{resources/example/exampleQuant.png}
+	\includegraphics[scale=0.25]{resources/example/exampleQuant.png}
 	\caption{The result of quantizing the coefficients of the 9/7 DWT.}
 	\label{fig:exampleQuant}
 \end{figure}
+
+% Compressed image.
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35]{resources/example/exampleCompressed.png}
+	\includegraphics[scale=0.25]{resources/example/exampleCompressed.png}
 	\caption{The compressed image, using lossy techniques.}
 	\label{fig:exampleCompressed}
 \end{figure}
+
+% Corners
 \begin{figure}
 	\centering
 	\includegraphics{resources/example/corners.png}
