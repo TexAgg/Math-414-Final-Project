@@ -7,6 +7,7 @@
 \usepackage{float}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 \usepackage{listings}
+\usepackage{fancyhdr}
 \usepackage{hyperref}
 
 % http://tex.stackexchange.com/questions/118173/how-to-write-ceil-and-floor-in-latex
@@ -25,6 +26,11 @@
 \title{The JPEG 2000}
 \author{Matt Gaikema \\ Will Argueta}
 \date{May 2016}
+
+% https://www.sharelatex.com/learn/Headers_and_footers
+\pagestyle{fancy}
+%\fancyhf{}
+\rhead{Matt Gaikema, Will Argueta}
 
 \begin{document}
 
@@ -290,7 +296,8 @@ with $a_m$ again defined recursively, this time as
 %%%%%%%%%%%%%%%
 \section{Application}
 
-The source code for the implemented transformations in Mathematica can be found at \cite{implement}.
+The source code for the implemented transformations in Mathematica can be found at \cite{implement},
+as well as attached to the report.
 Figure \ref{fig:original} is the image, untransformed and uncompressed.
 Since it is a grayscale image, no color space conversions needs to be done.
 Figures \ref{fig:lossybaby} and \ref{fig:losslessbaby} show the results of a lossy and lossless 
@@ -416,8 +423,16 @@ great degree of versatility, which the JPEG lacks.
 %%%%%%%%%%%%%%
 \printbibliography
 
+\lstdefinestyle{mystyle}{
+	breaklines=true,
+	showspaces=false
+}
+\lstset{style=mystyle}
 
-%\clearpage
-%\lstinputlisting{main.wl}
+\clearpage
+% Remove headers
+\fancyhf{}
+% The mathematica source file.
+\lstinputlisting[language=Mathematica,firstline=1,lastline=139]{main.wl}
 
 \end{document}
