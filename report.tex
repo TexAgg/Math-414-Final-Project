@@ -200,6 +200,17 @@ satisfies four properties\cite{old}:
 Figures \ref{fig:lossy_family} and \ref{fig:lossless_family} show plots of the $\phi(x)$
 and $\psi(x)$ for the lossy and lossless transforms, respectively.
 
+Since the CDF wavelet is biorthogonal, there are two wavelet bases, $\psi_{mn}$ and $\tilde{\psi}_{mn}$,
+which are shifts and scalings of $\psi$ and $\tilde{\psi}$.\cite{cdf}
+For any $f\in L^2(\mathbb{R})$, we have that
+\begin{equation}
+	f = \sum_{j,k\in\mathbb{Z}}\langle f,\tilde{\psi}_{jk}\rangle\psi_{jk}=\sum_{j,k\in\mathbb{Z}}\langle f,\psi_{jk}\rangle\tilde{\psi}_{jk}.
+\end{equation}
+The two scaling functions $\phi(x)$ and $\tilde{\phi}(x)$ are referred to 
+as the primal and dual scaling functions, respectively.\cite{cdfwhat}
+As usual, dilations and translations of a function $g(x)$ are defined by 
+\[g_{j,k}(x)=2^{j/2}g(2^jx-k).\]
+
 Similar to the Daubechies Wavelet, the CDF wavelet is constructed using a polynomial.
 For every positive integer $A$ there is a unique polynomial $Q_A(x)$ of degree $A-1$ such that
 \[(1-\frac{x}{2})^AQ_A(x)+(\frac{x}{2})^AQ_A(2-x)=1,\]
@@ -214,16 +225,53 @@ Then,
 are a pair of biorthogonal scaling sequences.
 Here, $d$ is an arbitrary integer used to center the sequences and make the filters causal.
 
-Since the CDF wavelet is biorthogonal, there are two wavelet bases, $\psi_{mn}$ and $\tilde{\psi}_{mn}$,
-which are shifts and scalings of $\psi$ and $\tilde{\psi}$.\cite{cdf}
-For any $f\in L^2(\mathbb{R})$, we have that
+The CDF 5/3 wavelet is obtained when $A=2$, 
+and the CDF 9/7 wavelet is obtained when $A=4$:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $A$ & $Q_A(x)$ & $q_{prim}$ & $q_{dual}$ \\
+        \hline
+        2 & $1+x$ & 1 & $1+x$ \\
+        \hline
+        4 & $1+2x+\frac{5}{2}x^2+\frac{5}{2}x^3$ & $1-x$ & $1+(c+2)x+(c^2+2c+\frac{5}{2})x^2$ \\
+        \hline
+    \end{tabular}
+    %\caption{Caption}
+    %\label{tab:my_label}
+\end{table}
+where $c\approx-1.4603$.\cite{cdfwiki}
+
+The filter coefficients can also be found using a process called lifting.\cite{lifting}
+Let $n$ be the number of smoothness factors.
+If $n$ is even, then
 \begin{equation}
-	f = \sum_{j,k\in\mathbb{Z}}\langle f,\tilde{\psi}_{jk}\rangle\psi_{jk}=\sum_{j,k\in\mathbb{Z}}\langle f,\psi_{jk}\rangle\tilde{\psi}_{jk}.
+    \begin{aligned}
+        x_{-1}(z) =& z \\
+        x_0(z) =& 1 \\
+        x_{m+1}(z) =& x_{m-1}(z)+a_m(2m+1)(z+z^{-1})z^{(-1)^m}x_m(z),
+    \end{aligned}
 \end{equation}
-The two scaling functions $\phi(x)$ and $\tilde{\phi}(x)$ are referred to 
-as the primal and dual scaling functions, respectively.\cite{cdfwhat}
-As usual, dilations and translations of a function $g(x)$ are defined by 
-\[g_{j,k}(x)=2^{j/2}g(2^jx-k).\]
+with $a_m$ recursively defined as
+\begin{align*}
+    a_0 =& \frac{1}{n} \\
+    a_m =& \frac{1}{(n^2-4m^2)a_{m-1}}.
+\end{align*}
+If $n$ is odd, then we have
+\begin{equation}
+    \begin{aligned}
+        x_{-1}(z) =& z \\
+        x_0(z) =& 1 \\
+        x_1(z) =& x_{-1}(z)+a_0x_0(z) \\
+        x_{m+1}(z) =& x_{m-1}(z)+a_m\big((2m+1)z+(2m-1)z^{-1}\big)z^{(-1)^m}x_m(z),
+    \end{aligned}
+\end{equation}
+with $a_m$ again defined recursively, this time as
+\begin{align*}
+    a_0 =& \frac{1}{n} \\
+    a_m =& \frac{1}{\big(n^2-(2m-1)^2\big)a_{m-1}}.
+\end{align*}
 
 %\bigskip
 %\noindent
