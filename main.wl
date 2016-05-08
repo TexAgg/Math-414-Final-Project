@@ -2,6 +2,7 @@
 
 (* 
 Matt Gaikema
+Will Argueta
 Math 414 Final Project
 Spring 2016
 Implementation of the JPEG 2000 compression.
