@@ -19,11 +19,6 @@ SetOptions[EvaluationNotebook[], CellContext -> Notebook]
 SetDirectory["C:\\Users\\mgaik\\Dropbox\\Programming\\R\\Math-414-Final-Project\\resources"]
 
 
-Needs["RLink`"]
-(* Load R. *)
-InstallR["RHomeLocation"->"C:\\Program Files\\R\\R-3.2.3"]
-
-
 (* ::Section:: *)
 (*JPEG2000 Compression*)
 
@@ -138,6 +133,10 @@ Export["finalLosslessBaby.png",losslessBaby,"ImageEncoding"->"Lossless"]
 (*Misc.*)
 
 
+(* ::Subsection::Closed:: *)
+(*Image import*)
+
+
 (* Import external images and figures for the report. *)
 
 
@@ -174,4 +173,26 @@ Import["http://www.whydomath.org/node/wavlets/images/Largejpeg2000compressed.gif
 Export["exampleCompressed.png",%]
 
 
+(* Return to resources directory. *)
+ResetDirectory[]
 
+
+(* ::Subsection::Closed:: *)
+(*Messing around*)
+
+
+(* There is nothing relevant in this portion of the file. *)
+
+
+boi = Import["https://i.ytimg.com/vi/nytzHVEHLLs/hqdefault.jpg"]
+
+
+boi = RemoveBackground[boi]
+(*boi = ImageResize[boi,Scaled[1/2]]*)
+
+
+Export["datboi.png",boi]
+
+
+(*Get["https://gist.githubusercontent.com/keshavsaharia/5894016/raw/c273091075a4d06edf4b6f9c10cd89020382c5f9/Mathematica%2520-%2520ASCII"]
+ASCIIimage[boi]*)

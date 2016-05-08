@@ -14,9 +14,4 @@ The build system is pdflatex.
 ---
 
 ## Additional resources
-
-### JPEG 2000
-* http://petapixel.com/2015/09/12/jpeg-2000-the-better-alternative-to-jpeg-that-never-made-it-big/
-
-### Make
 * https://akdiem.wordpress.com/2013/03/15/the-simplest-most-useful-makefile-latex/
