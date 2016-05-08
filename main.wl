@@ -138,19 +138,27 @@ Export["finalLosslessBaby.jp2",losslessBaby,"ImageEncoding"->"Lossless"]
 Export["finalLosslessBaby.png",losslessBaby]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Misc.*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Image import*)
 
 
 (* Import external images and figures for the report. *)
 
 
+(* ::Subsubsection::Closed:: *)
+(*Comparison*)
+
+
 Import["http://www.verypdf.com/pdfinfoeditor/jpeg-jpeg2k-1.png"]
 Export["comparison.png",%]
+
+
+(* ::Subsubsection:: *)
+(*Example*)
 
 
 (* Switch to a seperate directory with the example images. *)
@@ -180,6 +188,18 @@ Export["exampleQuant.png",%]
 (* JPEG 2000 compressed image. *)
 Import["http://www.whydomath.org/node/wavlets/images/Largejpeg2000compressed.gif"]
 Export["exampleCompressed.png",%]
+
+
+(* Import the corner of the example images. 
+Original, jp2, and jpeg, respectively. *)
+(*Import["http://www.whydomath.org/node/wavlets/images/Largejpeg2000corner.gif"]*)
+Import/@{
+	"http://www.whydomath.org/node/wavlets/images/Largejpeg2000corner.gif",
+	"http://www.whydomath.org/node/wavlets/images/Largejpeg2000cornerjpeg2000.gif",
+	"http://www.whydomath.org/node/wavlets/images/Largejpeg2000cornerjpeg.gif"
+}
+corners = GraphicsRow[%]
+Export["corners.png",corners]
 
 
 (* Return to resources directory. *)

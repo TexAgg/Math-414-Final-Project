@@ -311,6 +311,13 @@ show the final results of lossy and lossless compressions, respectively.
 	\caption{The compressed image, using lossy techniques.}
 	\label{fig:exampleCompressed}
 \end{figure}
+\begin{figure}
+	\centering
+	\includegraphics{resources/example/corners.png}
+	\caption{The upper left corners of the original image, the JPEG 2000 compressed image, 
+	and a JPEG compressed image, respectively.}
+	\label{fig:corners}
+\end{figure}
 
 A more complete example can be found at \cite{whydomath}.
 Figure \ref{fig:originalExample} shows the original, uncompressed image.
@@ -319,6 +326,9 @@ and Figure \ref{fig:lossyTransform} shows the result of a CDF 9/7 wavelet transf
 The quantized coefficients of the CDF 9/7 DWT are shown in Figure \ref{fig:exampleQuant}.
 The compressed image is shown in Figure \ref{fig:exampleCompressed}, 
 and can be compared with Figure \ref{fig:originalExample}.
+In Figure \ref{fig:corners}, notice the blocky artifacts that appear in the upper left corner
+of Figure \ref{fig:originalExample}, after being compressed using JPEG,
+which do not appear in the JPEG 2000 compression.
 
 
 %%%%%%%%%%%%%%
