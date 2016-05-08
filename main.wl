@@ -3,6 +3,7 @@
 (* 
 Matt Gaikema
 Math 414 Final Project
+Spring 2016
 Implementation of the JPEG 2000 compression.
 *)
 
@@ -38,7 +39,12 @@ https://reference.wolfram.com/language/ref/WaveletImagePlot.html *)
 (*Baby*)
 
 
-(* https://reference.wolfram.com/language/ref/format/JPEG2000.html *)
+(* Demonstrate the JPEG 2000 compression algorithm on an image. 
+The compression was originally transformed on a picture of a baby;
+hence all the baby-related variables. *)
+
+
+(* Import the image to compress. *)
 (*Import["ExampleData/girl.jp2"];*)
 Import["ExampleData/spikey2.png"];
 
@@ -58,19 +64,20 @@ Export[{"baby.png","baby.jp2"},baby]
 (*Transformation*)
 
 
-(* Lossless compression. *)
+(* Transform for lossless compression. *)
 lossless = LiftingWaveletTransform[baby, CDFWavelet["5/3"],2]
 
 
-(* Perform DWT on numerical image values:
-DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2] *)
+(* Perform DWT on numerical image values: *)
+(*DiscreteWaveletTransform[ImageData[baby], CDFWavelet["5/3"],2]*)
 
 
+(* Wavelet immage coefficients. *)
 losslessPlot = WaveletImagePlot[lossless]
 Export["losslessbaby.png",%]
 
 
-(* Plot functions. *)
+(* Plot 5/3 primal functions. *)
 Clear[x]
 fam = lossless["Wavelet"];
 WaveletPsi[fam,x];
@@ -81,15 +88,16 @@ losslessFamily = GraphicsRow[{ps,ph}]
 Export["lossless_family.png",%]
 
 
-(* Lossy compression. *)
+(* Transform for lossy compression. *)
 lossy = LiftingWaveletTransform[baby,CDFWavelet["9/7"],2]
 
 
+(* Wavelet immage coefficients. *)
 lossyPlot = WaveletImagePlot[lossy]
 Export["lossybaby.png",%]
 
 
-(* Plot functions. *)
+(* Plot 9/7 primal functions. *)
 Clear[x]
 fam = lossy["Wavelet"];
 WaveletPsi[fam,x];
@@ -109,6 +117,7 @@ G[img_,wind_] := ImageApply[Floor[#*16]/16&,img]
 quant = WaveletMapIndexed[G,lossy]
 
 
+(* Wavelet image coefficients. *)
 quantPlot = WaveletImagePlot[quant]
 Export["quantBabyPlot.png",quantPlot]
 
@@ -125,8 +134,8 @@ Export["finalLossyBaby.png",lossyBaby]
 
 losslessBaby = InverseWaveletTransform[lossless]
 (* Exporting as a .jp2 will automatically perform the encoding. *)
-Export["finalLosslessBaby.jp2",losslessBaby]
-Export["finalLosslessBaby.png",losslessBaby,"ImageEncoding"->"Lossless"]
+Export["finalLosslessBaby.jp2",losslessBaby,"ImageEncoding"->"Lossless"]
+Export["finalLosslessBaby.png",losslessBaby]
 
 
 (* ::Section::Closed:: *)
@@ -181,7 +190,7 @@ ResetDirectory[]
 (*Messing around*)
 
 
-(* There is nothing relevant in this portion of the file. *)
+(* There is nothing relevant beyond this portion of the file. *)
 
 
 boi = Import["https://i.ytimg.com/vi/nytzHVEHLLs/hqdefault.jpg"]
@@ -194,5 +203,6 @@ boi = RemoveBackground[boi]
 Export["datboi.png",boi]
 
 
+(* I think this external file causes an error with output. *)
 (*Get["https://gist.githubusercontent.com/keshavsaharia/5894016/raw/c273091075a4d06edf4b6f9c10cd89020382c5f9/Mathematica%2520-%2520ASCII"]
 ASCIIimage[boi]*)
