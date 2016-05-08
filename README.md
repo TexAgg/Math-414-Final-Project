@@ -2,6 +2,7 @@
 Final [project](http://www.math.tamu.edu/~francis.narcowich/m414/s16/projects_s16.html),
 using wavelets.
 Demonstrating image compression, and the JPEG 2000.
+Read the final report [here](https://www.dropbox.com/s/7pu4qetwkwwxmk9/report.pdf?dl=0).
 
 ---
 
