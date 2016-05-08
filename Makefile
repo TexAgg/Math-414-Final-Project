@@ -10,6 +10,9 @@ $(TEXFILE).pdf: $(TEXFILE).tex
 clean:
 	del *.aux *.blg *.out *.bbl *.log *.pdf report.run.xml report-blx.bib
 	
+view: $(TEXFILE).pdf
+	$(TEXFILE).pdf &
+	
 cleanResource:
 	cd resources && del *.png *.jp2
 
