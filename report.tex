@@ -43,14 +43,20 @@
 
 In order to efficiently send and receive images, it is often useful to compress them, 
 since much of the data may be irrelevant or redundant.
-One of the many ways of accomplishing this is through wavelets.
+Although there are many ways to accomplish this compression, we will be focusing on the method of wavelets, namely 
+the jpeg 2000, which have shown to be an improvement over some of the older methods 
+still used today.
 
 There are two types of image compression: lossy and lossless.
 \textbf{Lossless} compression means that every bit of information is recovered from the compressed data,
 while \textbf{lossy} compression occurs when redundant information is eliminated.
 The GIF is an example of lossless compression, while the JPEG is lossy.
+The GIF may be lossless, but it is not a good option for larger or complex images since it is very limited in its color spectrum, 
+which is what allows it to limit its file size. The JPEG on the other 
+hand has a huge color spectrum making it great for large and complex images all the 
+while keeping file sizes relatively small.
 
-The JPEG 2000 is one method of image compression which uses wavelets.
+The JPEG 2000, as mentioned earlier, is one method of image compression which uses wavelets.
 It was created in 2000 by the Joint Photographic Experts Group with the aim of replacing the original JPEG standard, 
 which uses the Discrete Cosine Transform and was created in 1992.
 The file extension is \verb|.jp2|, compared with the typical JPEG extension of \verb|.jpg|.
@@ -66,19 +72,24 @@ The file extension is \verb|.jp2|, compared with the typical JPEG extension of \
 There are a few advantages of the JPEG 2000 over the JPEG,
 thanks to the JPEG 2000's use of wavelets.
 First, JPEG 2000 can be lossy or lossless, while JPEG compression is always lossy.
-This means that JPEG 2000 produces images of much higher quality.
+This means that JPEG 2000 can produce images of much higher quality.
 Figure \ref{fig:compare} shows two images compressed both using JPEG and JPEG 2000.
 
 Of course, despite the advantages of the JPEG 2000, it is rarely used today, 
 while the JPEG is still very popular.
 The main reason is computation.\cite{alternative} 
 Adopting the JPEG 2000 would have required rewriting much software, 
-since it was not backwards-compatable with the JPEG.
+since it was not backwards-compatible with the JPEG.
 Many companies were unwilling to add support for it since it wasn't popular,
 and many consumers didn't use it since there was little support for it,
 creating an unfortunate cycle. 
 Additionally, the JPEG 2000 requires more computing power, which was not as abundant in 2000 as it is today.
-To this day, few websites and no major web browsers support it.
+Because of this need for more computing power, companies that would’ve adopted
+this technology would be sacrificing speed along with all the compatibility issues 
+discussed earlier, which simply was not worth it at the time.
+To this day, few websites and no major web browsers support it,
+and it may not gain any popular support because
+the standard jpeg is already pretty good and established in the industry.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -402,10 +413,22 @@ which do not appear in the JPEG 2000 compression.
 %%%%%%%%%%%%%%
 \section{Conclusion}
 
-The JPEG 2000 could easily be the next standard for image compression, if only people would use it.
-It uses much more sophisticated techniques than the JPEG to improve image quality and compression,
+The JPEG 2000 could easily become the next standard for image compression, 
+if larger companies start to adopt it and start giving it more support than it is currently 
+getting and making it more popular amongst the general public.
+
+The JPEG 2000 uses much more sophisticated techniques than the JPEG to improve image quality and compression,
 but computational requirements made it unattractive.
-For performing a lossless compression, the PNG is more efficient, space-wise and computationally.
+This improvement in image quality and compression over the standard JPEG
+could make it popular if storage space starts becoming more of an issue. The image 
+compressions are much more accurate than the standard JPEG and take up just as much 
+space if not less. 
+Because of this fact, it would be a great alternative for someone who 
+needs to store many high quality images without using as much storage as an 
+uncompressed image without losing too much image quality. 
+Fortunately, there are other better options available on the market today.
+For performing a lossless compression, the PNG is more efficient, space-wise and computationally,
+making it a great alternative.
 
 The JPEG 2000 is best-suited for large images and images with low-contrast edges,
 which are primarily medical images.
@@ -415,7 +438,9 @@ which is the international standard for medical imaging.\cite{dicom}
 
 We demonstrated the superiority of image quality after a JPEG 2000 compression, 
 and its ability to perform both lossy and lossless compression gives it a 
-great degree of versatility, which the JPEG lacks.
+great degree of versatility, which the JPEG lacks,
+and hopefully it will be adopted in the future as
+computers and technology get more sophisticated.
 
 
 %%%%%%%%%%%%%%
